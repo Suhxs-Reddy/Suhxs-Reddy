@@ -121,7 +121,7 @@ flowchart LR
 ```
 
 <table>
-<tr><td>💡</td><td><strong>~130K extra parameters</strong> on top of YOLO's 9.4M — a 1.4% overhead. Inference cost is rounding-error.</td></tr>
+<tr><td>🟢</td><td><strong>Live on HuggingFace Spaces right now.</strong> Collecting from all 90 cameras every 60 seconds — 80,000+ records and growing. Dataset publishing to Kaggle for open traffic research.</td></tr>
 </table>
 
 <details>
@@ -299,7 +299,7 @@ Store-level weekly demand with lagged/rolling features, holiday flags, and chron
 <td width="50%" valign="top">
 
 🛠️ &nbsp; **Building**
-- CATI training on Colab A100 — moving toward HF Spaces deploy
+- CATI — live on HF Spaces, collecting data for Kaggle dataset publication
 - COLLIDE — Vercel deploy + scaling beyond ERCOT to CAISO + PJM
 - Research Assistant work at ASU College of Health Solutions
 
@@ -342,33 +342,6 @@ Store-level weekly demand with lagged/rolling features, holiday flags, and chron
 
 <br/>
 
----
-
-<br/>
-
-<div align="center">
-
-## <img src="https://api.iconify.design/fluent-emoji-flat/bar-chart.svg" width="24" /> &nbsp; Activity
-
-<br/>
-
-<img src="https://github-readme-stats.vercel.app/api?username=Suhxs-Reddy&show_icons=true&theme=github_dark&hide_border=true&bg_color=0d1117&title_color=4ade80&icon_color=fbbf24&text_color=e5e7eb&count_private=true&include_all_commits=true&rank_icon=github" height="180" />
-&nbsp;&nbsp;
-<img src="https://github-readme-streak-stats.herokuapp.com/?user=Suhxs-Reddy&theme=github-dark-blue&hide_border=true&background=0d1117&ring=4ade80&fire=fb7185&currStreakLabel=4ade80&sideLabels=e5e7eb&dates=9ca3af" height="180" />
-
-<br/>
-<br/>
-
-<img src="https://github-readme-stats.vercel.app/api/top-langs/?username=Suhxs-Reddy&layout=compact&theme=github_dark&hide_border=true&bg_color=0d1117&title_color=4ade80&text_color=e5e7eb&langs_count=8" height="160" />
-
-<br/>
-<br/>
-
-<img src="https://github-readme-activity-graph.vercel.app/graph?username=Suhxs-Reddy&theme=react-dark&hide_border=true&bg_color=0d1117&color=4ade80&line=4ade80&point=fbbf24&area=true&area_color=4ade80" width="100%" />
-
-</div>
-
-<br/>
 
 ---
 

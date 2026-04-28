@@ -13,7 +13,7 @@
 <br/>
 <br/>
 
-<img src="https://readme-typing-svg.demolab.com?font=JetBrains+Mono&weight=600&size=20&duration=2400&pause=700&color=4ADE80&center=true&vCenter=true&width=900&lines=monsoon-proof+traffic+detection.;gigawatt+power+siting+in+seconds.;the+privacy+policy%2C+finally+read.;applied+AI+for+the+messy%2C+real+world." />
+<img src="https://readme-typing-svg.demolab.com?font=JetBrains+Mono&weight=600&size=20&duration=2800&pause=900&color=4ADE80&center=true&vCenter=true&width=900&lines=let+the+data+lead.;context+changes+everything.;the+signal+is+already+in+the+room.;ship+it%2C+then+write+the+paper." />
 
 </div>
 

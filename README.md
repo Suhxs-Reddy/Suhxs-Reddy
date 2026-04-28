@@ -13,7 +13,7 @@
 <br/>
 <br/>
 
-<img src="https://readme-typing-svg.demolab.com?font=JetBrains+Mono&weight=600&size=20&duration=2800&pause=900&color=22c55e&center=true&vCenter=true&width=900&lines=let+the+data+lead.;context+changes+everything.;the+signal+is+already+in+the+room.;ship+it%2C+then+write+the+paper." />
+<img src="https://readme-typing-svg.demolab.com?font=JetBrains+Mono&weight=600&size=22&duration=3000&pause=1200&color=22c55e&center=true&vCenter=true&width=435&lines=let+the+data+lead." />
 
 </div>
 
@@ -23,49 +23,13 @@
 
 <br/>
 
----
-
-<br/>
-
 <div align="center">
 
-## <img src="https://api.iconify.design/lucide/sparkles.svg?color=%234ade80" width="22" /> &nbsp; What I'm good at
+<img src="https://api.iconify.design/lucide/scan-eye.svg?color=%2314b8a6" width="28" />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="https://api.iconify.design/lucide/bot-message-square.svg?color=%23f59e0b" width="28" />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="https://api.iconify.design/lucide/trending-up.svg?color=%23fb7185" width="28" />
+
+**Computer Vision** &nbsp;&nbsp;·&nbsp;&nbsp; **LLM Agents** &nbsp;&nbsp;·&nbsp;&nbsp; **Applied ML**
 
 </div>
-
-<br/>
-
-<table>
-<tr>
-<td valign="top" width="33%" align="center">
-
-<img src="https://api.iconify.design/lucide/scan-eye.svg?color=%2314b8a6" width="36" />
-
-### Computer vision in the wild
-
-Noisy cameras, bad weather, ancient hardware. I build detectors that know where and when they are.
-
-</td>
-<td valign="top" width="33%" align="center">
-
-<img src="https://api.iconify.design/lucide/bot-message-square.svg?color=%23f59e0b" width="36" />
-
-### LLM agents over real data
-
-RAG, tool-use, LangGraph orchestration — grounded in live APIs, not toy demos.
-
-</td>
-<td valign="top" width="33%" align="center">
-
-<img src="https://api.iconify.design/lucide/trending-up.svg?color=%23fb7185" width="36" />
-
-### Applied ML & DS
-
-Time-series, clustering, geospatial scoring. The boring stuff that makes the interesting stuff work.
-
-</td>
-</tr>
-</table>
 
 <br/>
 
@@ -81,9 +45,28 @@ Time-series, clustering, geospatial scoring. The boring stuff that makes the int
 
 <br/>
 
-### `01` &nbsp; CATI &nbsp;<sub><sup>Singapore traffic intelligence</sup></sub>
+<!-- ═══════════════════════ CATI ═══════════════════════ -->
 
-<a href="https://github.com/Suhxs-Reddy/sg-smart-city-analytics"><img src="https://img.shields.io/badge/View%20on%20GitHub-0d1117?style=for-the-badge&logo=github&logoColor=14b8a6" /></a>
+<table>
+<tr>
+<td>
+
+### <img src="https://api.iconify.design/lucide/scan-eye.svg?color=%2314b8a6" width="20" /> &nbsp; CATI &nbsp;<sub><sup>Context-Aware Traffic Intelligence · Singapore</sup></sub>
+
+A traffic detector that adapts to weather, time, camera, and air quality in real time. FiLM layers ([Perez et al., 2018](https://arxiv.org/abs/1709.07871)) modulate YOLOv11's backbone — one model instead of ninety. ~130K extra parameters on 9.4M.
+
+<a href="https://github.com/Suhxs-Reddy/sg-smart-city-analytics"><img src="https://img.shields.io/badge/repo-0d1117?style=flat-square&logo=github&logoColor=14b8a6" /></a> &nbsp; <img src="https://img.shields.io/badge/status-live-4ade80?style=flat-square&labelColor=0d1117" /> &nbsp; <img src="https://img.shields.io/badge/records-80%2C000%2B-14b8a6?style=flat-square&labelColor=0d1117" />
+
+<sub>`PyTorch` · `YOLOv11` · `FiLM` · `BoT-SORT` · `data.gov.sg` · `Docker` · `HuggingFace Spaces`</sub>
+
+</td>
+</tr>
+</table>
+
+<details>
+<summary><img src="https://api.iconify.design/lucide/chevron-right.svg?color=%2314b8a6" width="14" /> &nbsp;<b>the full story — why I built this and how it works</b></summary>
+
+<br/>
 
 Singapore runs ninety traffic cameras around the clock. Some are 1080p. Eleven are 320×240 hardware from the early 2000s. They look out over monsoon storms, midnight glare, peak-hour chaos, and the dead silence at 4am. And every single frame — every camera, every condition — gets piped through the same generic YOLO that treats them all identically. Which is exactly when vehicles get missed.
 
@@ -120,12 +103,10 @@ flowchart LR
     style OUT fill:#4ade80,color:#0d1117,stroke:#4ade80
 ```
 
-<table>
-<tr><td><img src="https://api.iconify.design/lucide/radio.svg?color=%234ade80" width="18" /></td><td><strong>Live on HuggingFace Spaces right now.</strong> Collecting from all 90 cameras every 60 seconds — 80,000+ records and growing. Dataset publishing to Kaggle for open traffic research.</td></tr>
-</table>
+</details>
 
 <details>
-<summary><img src="https://api.iconify.design/lucide/flask-conical.svg?color=%2314b8a6" width="16" /> &nbsp;<b>the math, the numbers, what I actually built</b></summary>
+<summary><img src="https://api.iconify.design/lucide/flask-conical.svg?color=%2314b8a6" width="14" /> &nbsp;<b>the math and numbers</b></summary>
 
 <br/>
 
@@ -139,19 +120,34 @@ A tiny encoder (MLP) processes weather code, temperature, sin/cos hour-of-day, a
 
 Total cost: ~130K extra parameters on YOLO's 9.4M. Inference cost is rounding-error.
 
+The system is live on HuggingFace Spaces, collecting from all 90 cameras every 60 seconds — 80,000+ records and growing. Dataset publishing to Kaggle for open traffic research.
+
 </details>
 
-<sub>`PyTorch` &nbsp;·&nbsp; `YOLOv11` &nbsp;·&nbsp; `FiLM` &nbsp;·&nbsp; `BoT-SORT` &nbsp;·&nbsp; `data.gov.sg` &nbsp;·&nbsp; `Docker` &nbsp;·&nbsp; `HuggingFace Spaces`</sub>
-
 <br/>
 
----
+<!-- ═══════════════════════ COLLIDE ═══════════════════════ -->
+
+<table>
+<tr>
+<td>
+
+### <img src="https://api.iconify.design/lucide/zap.svg?color=%23f59e0b" width="20" /> &nbsp; COLLIDE &nbsp;<sub><sup>AI siting for gigawatt data centers</sup></sub>
+
+Where should you build a 100 MW behind-the-meter gas plant? Three ML models (land · gas · power) argue through TOPSIS, a LangGraph agent answers what-ifs in plain English, and Monte Carlo gives you P10/P50/P90 over 20 years. 10 live data sources. What takes consulting firms months happens in seconds.
+
+<a href="https://github.com/Suhxs-Reddy/EnergyHackathon"><img src="https://img.shields.io/badge/repo-0d1117?style=flat-square&logo=github&logoColor=f59e0b" /></a> &nbsp; <img src="https://img.shields.io/badge/hackathon-ASU%20Energy%202026-f59e0b?style=flat-square&labelColor=0d1117" /> &nbsp; <img src="https://img.shields.io/badge/built-solo-fbbf24?style=flat-square&labelColor=0d1117" />
+
+<sub>`FastAPI` · `LangGraph` · `Claude` · `DuckDB` · `Leaflet` · `SHAP` · `Random Forest` · `KDE` · `GMM` · `Monte Carlo`</sub>
+
+</td>
+</tr>
+</table>
+
+<details>
+<summary><img src="https://api.iconify.design/lucide/chevron-right.svg?color=%23f59e0b" width="14" /> &nbsp;<b>the full story — the three-body problem of energy siting</b></summary>
 
 <br/>
-
-### `02` &nbsp; COLLIDE &nbsp;<sub><sup>AI siting for gigawatt data centers</sup></sub>
-
-<a href="https://github.com/Suhxs-Reddy/EnergyHackathon"><img src="https://img.shields.io/badge/View%20on%20GitHub-0d1117?style=for-the-badge&logo=github&logoColor=f59e0b" /></a>
 
 Every AI hyperscaler needs power — gigawatts of it, twenty-four seven. Connecting a new data center to the grid takes three to seven years. Your competitors aren't waiting. So you build your own natural-gas plant on-site, behind the meter. The catch is picking *where*, and the catch is brutal: it's a three-body problem. Land has its own constraints (zoning, fiber, water, flood). Gas supply has its own (pipeline reliability, hub distance, curtailment risk). Electricity markets have their own (LMP spreads, price regimes, scarcity events). Real consultants charge six figures and take months because they evaluate these axes one at a time.
 
@@ -186,12 +182,10 @@ flowchart LR
     style UI fill:#4ade80,color:#0d1117,stroke:#4ade80
 ```
 
-<table>
-<tr><td><img src="https://api.iconify.design/lucide/zap.svg?color=%23f59e0b" width="18" /></td><td><strong>Built solo for ASU Energy Hackathon 2026.</strong> Collapses a multi-month consulting workflow into seconds.</td></tr>
-</table>
+</details>
 
 <details>
-<summary><img src="https://api.iconify.design/lucide/binary.svg?color=%23f59e0b" width="16" /> &nbsp;<b>model specs and numbers</b></summary>
+<summary><img src="https://api.iconify.design/lucide/binary.svg?color=%23f59e0b" width="14" /> &nbsp;<b>model specs and numbers</b></summary>
 
 <br/>
 
@@ -209,19 +203,12 @@ flowchart LR
 
 </details>
 
-<sub>`FastAPI` &nbsp;·&nbsp; `LangGraph` &nbsp;·&nbsp; `Claude` &nbsp;·&nbsp; `DuckDB` &nbsp;·&nbsp; `Leaflet` &nbsp;·&nbsp; `SHAP` &nbsp;·&nbsp; `Random Forest` &nbsp;·&nbsp; `KDE` &nbsp;·&nbsp; `GMM` &nbsp;·&nbsp; `Monte Carlo`</sub>
-
 <br/>
 
----
+<!-- ═══════════════════════ OTHER PROJECTS ═══════════════════════ -->
 
-<br/>
-
-<div align="center">
-
-## <img src="https://api.iconify.design/lucide/folder-git-2.svg?color=%234ade80" width="22" /> &nbsp; Other things I've shipped
-
-</div>
+<details>
+<summary><img src="https://api.iconify.design/lucide/folder-git-2.svg?color=%234ade80" width="16" /> &nbsp;<b>other things I've shipped</b></summary>
 
 <br/>
 
@@ -272,17 +259,11 @@ Store-level weekly demand with lagged/rolling features, holiday flags, and chron
 </tr>
 </table>
 
+</details>
+
 <br/>
 
 ---
-
-<br/>
-
-<div align="center">
-
-## <img src="https://api.iconify.design/lucide/radio-tower.svg?color=%234ade80" width="22" /> &nbsp; Currently
-
-</div>
 
 <br/>
 
@@ -309,22 +290,16 @@ Store-level weekly demand with lagged/rolling features, holiday flags, and chron
 
 <br/>
 
----
+<details>
+<summary><img src="https://api.iconify.design/lucide/blocks.svg?color=%234ade80" width="16" /> &nbsp;<b>stack</b></summary>
 
 <br/>
 
 <div align="center">
 
-## <img src="https://api.iconify.design/lucide/blocks.svg?color=%234ade80" width="22" /> &nbsp; Stack
-
-<br/>
-
 <img src="https://skillicons.dev/icons?i=python,pytorch,sklearn,fastapi,docker,aws,ts,react,nextjs,tailwind,vercel,git&perline=6&theme=dark" />
 
-<br/>
-
-<details>
-<summary><img src="https://api.iconify.design/lucide/list-tree.svg?color=%23818cf8" width="16" /> &nbsp;<b>full stack breakdown</b></summary>
+</div>
 
 <br/>
 
@@ -338,53 +313,23 @@ Store-level weekly demand with lagged/rolling features, holiday flags, and chron
 
 </details>
 
-</div>
+<br/>
+
+<details>
+<summary><img src="https://api.iconify.design/lucide/milestone.svg?color=%234ade80" width="16" /> &nbsp;<b>the path here</b></summary>
 
 <br/>
 
+| | |
+|---|---|
+| **2026 →** | <img src="https://api.iconify.design/lucide/microscope.svg?color=%2314b8a6" width="14" /> &nbsp; **Research Assistant** · ASU College of Health Solutions |
+| **2026** | <img src="https://api.iconify.design/lucide/zap.svg?color=%23f59e0b" width="14" /> &nbsp; **ASU Energy Hackathon** · COLLIDE — built the whole pipeline solo |
+| **2025 → 27** | <img src="https://api.iconify.design/lucide/graduation-cap.svg?color=%23818cf8" width="14" /> &nbsp; **MS Data Science** · Arizona State University |
+| **2025** | <img src="https://api.iconify.design/lucide/bar-chart-3.svg?color=%23fb7185" width="14" /> &nbsp; **Data Science Intern** · GlobalLogic · Auth/RBAC platform analytics |
+| **2024** | <img src="https://api.iconify.design/lucide/terminal.svg?color=%23fbbf24" width="14" /> &nbsp; **SWE Intern** · GlobalLogic · GenAI platform backend |
+| **2021 → 25** | <img src="https://api.iconify.design/lucide/graduation-cap.svg?color=%23818cf8" width="14" /> &nbsp; **B.Tech CS** (Big Data minor) · MIT Manipal |
 
----
-
-<br/>
-
-<div align="center">
-
-## <img src="https://api.iconify.design/lucide/milestone.svg?color=%234ade80" width="22" /> &nbsp; The path here
-
-</div>
-
-<br/>
-
-<table>
-<tr>
-<td align="center" width="100"><b>When</b></td>
-<td><b>What</b></td>
-</tr>
-<tr>
-<td align="center">2026 →</td>
-<td><img src="https://api.iconify.design/lucide/microscope.svg?color=%2314b8a6" width="14" /> &nbsp; <b>Research Assistant</b> · ASU College of Health Solutions</td>
-</tr>
-<tr>
-<td align="center">2026</td>
-<td><img src="https://api.iconify.design/lucide/zap.svg?color=%23f59e0b" width="14" /> &nbsp; <b>ASU Energy Hackathon</b> · COLLIDE — built the whole pipeline solo</td>
-</tr>
-<tr>
-<td align="center">2025 → 27</td>
-<td><img src="https://api.iconify.design/lucide/graduation-cap.svg?color=%23818cf8" width="14" /> &nbsp; <b>MS Data Science</b> · Arizona State University</td>
-</tr>
-<tr>
-<td align="center">2025</td>
-<td><img src="https://api.iconify.design/lucide/bar-chart-3.svg?color=%23fb7185" width="14" /> &nbsp; <b>Data Science Intern</b> · GlobalLogic · Auth/RBAC platform analytics</td>
-</tr>
-<tr>
-<td align="center">2024</td>
-<td><img src="https://api.iconify.design/lucide/terminal.svg?color=%23fbbf24" width="14" /> &nbsp; <b>SWE Intern</b> · GlobalLogic · GenAI platform backend</td>
-</tr>
-<tr>
-<td align="center">2021 → 25</td>
-<td><img src="https://api.iconify.design/lucide/graduation-cap.svg?color=%23818cf8" width="14" /> &nbsp; <b>B.Tech CS</b> (Big Data minor) · MIT Manipal</td>
-</tr>
-</table>
+</details>
 
 <br/>
 

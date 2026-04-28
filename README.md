@@ -1,6 +1,6 @@
 <div align="center">
 
-<img src="https://capsule-render.vercel.app/api?type=waving&color=0:161b22,50:34d399,100:161b22&height=220&section=header&text=Suhas%20Reddy&fontSize=64&fontColor=f0f6fc&fontAlignY=36&desc=MS+Data+Science+%C2%B7+Arizona+State+University&descSize=15&descAlignY=56&descColor=9ca3af&animation=fadeIn" width="100%" />
+<img src="./assets/header.png" width="100%" />
 
 <br/>
 
@@ -35,7 +35,7 @@
 
 <br/>
 
----
+<img src="./assets/divider.png" width="100%" />
 
 <br/>
 
@@ -265,7 +265,7 @@ Store-level weekly demand with lagged/rolling features, holiday flags, and chron
 
 <br/>
 
----
+<img src="./assets/divider.png" width="100%" />
 
 <br/>
 
@@ -345,6 +345,6 @@ Store-level weekly demand with lagged/rolling features, holiday flags, and chron
 <br/>
 <br/>
 
-<img src="https://capsule-render.vercel.app/api?type=waving&color=0:161b22,50:34d399,100:161b22&height=100&section=footer" width="100%" />
+<img src="./assets/footer.png" width="100%" />
 
 </div>

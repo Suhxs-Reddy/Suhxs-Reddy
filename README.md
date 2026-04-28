@@ -23,21 +23,13 @@
 
 <br/>
 
-<div align="center">
-
-<img src="https://github-readme-activity-graph.vercel.app/graph?username=Suhxs-Reddy&theme=react-dark&hide_border=true&bg_color=0d1117&color=4ade80&line=4ade80&point=fbbf24&area=true&area_color=4ade80" width="100%" />
-
-</div>
-
-<br/>
-
 ---
 
 <br/>
 
 <div align="center">
 
-## <img src="https://api.iconify.design/lucide/sparkles.svg?color=%234ade80" width="22" /> &nbsp; What I'm good at
+## <img src="https://api.iconify.design/fluent-emoji-flat/sparkles.svg" width="24" /> &nbsp; What I'm good at
 
 </div>
 
@@ -47,7 +39,7 @@
 <tr>
 <td valign="top" width="33%" align="center">
 
-<img src="https://api.iconify.design/lucide/scan-eye.svg?color=%2314b8a6" width="40" />
+<img src="https://api.iconify.design/fluent-emoji-flat/eye.svg" width="40" />
 
 ### Computer vision in the wild
 
@@ -56,7 +48,7 @@ Noisy cameras, bad weather, ancient hardware. I build detectors that know where 
 </td>
 <td valign="top" width="33%" align="center">
 
-<img src="https://api.iconify.design/lucide/bot.svg?color=%23f59e0b" width="40" />
+<img src="https://api.iconify.design/fluent-emoji-flat/robot.svg" width="40" />
 
 ### LLM agents over real data
 
@@ -65,7 +57,7 @@ RAG, tool-use, LangGraph orchestration — grounded in live APIs, not toy demos.
 </td>
 <td valign="top" width="33%" align="center">
 
-<img src="https://api.iconify.design/lucide/line-chart.svg?color=%23fb7185" width="40" />
+<img src="https://api.iconify.design/fluent-emoji-flat/chart-increasing.svg" width="40" />
 
 ### Applied ML & DS
 
@@ -83,7 +75,7 @@ Time-series, clustering, geospatial scoring. The boring stuff that makes the int
 
 <div align="center">
 
-## <img src="https://api.iconify.design/lucide/layers.svg?color=%234ade80" width="22" /> &nbsp; Featured Projects
+## <img src="https://api.iconify.design/fluent-emoji-flat/rocket.svg" width="24" /> &nbsp; Featured Projects
 
 </div>
 
@@ -133,7 +125,7 @@ flowchart LR
 </table>
 
 <details>
-<summary><b>&nbsp;↳ &nbsp; the math, the numbers, what I actually built</b></summary>
+<summary>🔬 &nbsp;<b>the math, the numbers, what I actually built</b></summary>
 
 <br/>
 
@@ -199,7 +191,7 @@ flowchart LR
 </table>
 
 <details>
-<summary><b>&nbsp;↳ &nbsp; model specs and numbers</b></summary>
+<summary>🧮 &nbsp;<b>model specs and numbers</b></summary>
 
 <br/>
 
@@ -227,7 +219,7 @@ flowchart LR
 
 <div align="center">
 
-## <img src="https://api.iconify.design/lucide/folder-git-2.svg?color=%234ade80" width="22" /> &nbsp; Other things I've shipped
+## <img src="https://api.iconify.design/fluent-emoji-flat/package.svg" width="24" /> &nbsp; Other things I've shipped
 
 </div>
 
@@ -288,7 +280,7 @@ Store-level weekly demand with lagged/rolling features, holiday flags, and chron
 
 <div align="center">
 
-## <img src="https://api.iconify.design/lucide/radio-tower.svg?color=%234ade80" width="22" /> &nbsp; Currently
+## <img src="https://api.iconify.design/fluent-emoji-flat/satellite-antenna.svg" width="24" /> &nbsp; Currently
 
 </div>
 
@@ -298,7 +290,7 @@ Store-level weekly demand with lagged/rolling features, holiday flags, and chron
 <tr>
 <td width="50%" valign="top">
 
-<img src="https://api.iconify.design/lucide/book-open-text.svg?color=%23fbbf24" width="22" /> &nbsp; **Reading**
+📖 &nbsp; **Reading**
 - Perez et al. — *FiLM: Visual Reasoning with a General Conditioning Layer* (2018)
 - Salesforce — *Moirai* time-series foundation model
 - Anything on **applying foundation models to physical infrastructure**
@@ -306,7 +298,7 @@ Store-level weekly demand with lagged/rolling features, holiday flags, and chron
 </td>
 <td width="50%" valign="top">
 
-<img src="https://api.iconify.design/lucide/hammer.svg?color=%23fb7185" width="22" /> &nbsp; **Building**
+🛠️ &nbsp; **Building**
 - CATI training on Colab A100 — moving toward HF Spaces deploy
 - COLLIDE — Vercel deploy + scaling beyond ERCOT to CAISO + PJM
 - Research Assistant work at ASU College of Health Solutions
@@ -323,16 +315,16 @@ Store-level weekly demand with lagged/rolling features, holiday flags, and chron
 
 <div align="center">
 
-## <img src="https://api.iconify.design/lucide/layers.svg?color=%234ade80" width="22" /> &nbsp; Stack
+## <img src="https://api.iconify.design/fluent-emoji-flat/hammer-and-wrench.svg" width="24" /> &nbsp; Stack
 
 <br/>
 
-<img src="https://skillicons.dev/icons?i=python,pytorch,sklearn,fastapi,docker,aws,ts,react,nextjs,tailwind,vercel,git&theme=dark" />
+<img src="https://skillicons.dev/icons?i=python,pytorch,sklearn,fastapi,docker,aws,ts,react,nextjs,tailwind,vercel,git&perline=6&theme=dark" />
 
 <br/>
 
 <details>
-<summary><b>↳ &nbsp; full stack breakdown</b></summary>
+<summary>📋 &nbsp;<b>full stack breakdown</b></summary>
 
 <br/>
 
@@ -356,12 +348,23 @@ Store-level weekly demand with lagged/rolling features, holiday flags, and chron
 
 <div align="center">
 
-## <img src="https://api.iconify.design/lucide/activity.svg?color=%234ade80" width="22" /> &nbsp; Activity
+## <img src="https://api.iconify.design/fluent-emoji-flat/bar-chart.svg" width="24" /> &nbsp; Activity
 
 <br/>
 
-<img src="https://github-readme-stats.vercel.app/api?username=Suhxs-Reddy&show_icons=true&theme=transparent&hide_border=true&bg_color=0d1117&title_color=4ade80&icon_color=fbbf24&text_color=e5e7eb&count_private=true&include_all_commits=true&rank_icon=github" height="170" />
-<img src="https://github-readme-streak-stats.herokuapp.com/?user=Suhxs-Reddy&theme=transparent&hide_border=true&background=0d1117&ring=4ade80&fire=fb7185&currStreakLabel=4ade80" height="170" />
+<img src="https://github-readme-stats.vercel.app/api?username=Suhxs-Reddy&show_icons=true&theme=github_dark&hide_border=true&bg_color=0d1117&title_color=4ade80&icon_color=fbbf24&text_color=e5e7eb&count_private=true&include_all_commits=true&rank_icon=github" height="180" />
+&nbsp;&nbsp;
+<img src="https://github-readme-streak-stats.herokuapp.com/?user=Suhxs-Reddy&theme=github-dark-blue&hide_border=true&background=0d1117&ring=4ade80&fire=fb7185&currStreakLabel=4ade80&sideLabels=e5e7eb&dates=9ca3af" height="180" />
+
+<br/>
+<br/>
+
+<img src="https://github-readme-stats.vercel.app/api/top-langs/?username=Suhxs-Reddy&layout=compact&theme=github_dark&hide_border=true&bg_color=0d1117&title_color=4ade80&text_color=e5e7eb&langs_count=8" height="160" />
+
+<br/>
+<br/>
+
+<img src="https://github-readme-activity-graph.vercel.app/graph?username=Suhxs-Reddy&theme=react-dark&hide_border=true&bg_color=0d1117&color=4ade80&line=4ade80&point=fbbf24&area=true&area_color=4ade80" width="100%" />
 
 </div>
 
@@ -373,20 +376,42 @@ Store-level weekly demand with lagged/rolling features, holiday flags, and chron
 
 <div align="center">
 
-## <img src="https://api.iconify.design/lucide/git-fork.svg?color=%234ade80" width="22" /> &nbsp; The path here
+## <img src="https://api.iconify.design/fluent-emoji-flat/milky-way.svg" width="24" /> &nbsp; The path here
 
 </div>
 
 <br/>
 
-```
-2026 → present   Research Assistant · ASU College of Health Solutions
-2026             ASU Energy Hackathon · COLLIDE
-2025 → 2027      MS Data Science · Arizona State University
-2025             Data Science Intern · GlobalLogic · Auth/RBAC platform analytics
-2024             SWE Intern · GlobalLogic · GenAI platform backend
-2021 → 2025      B.Tech Computer Science (minor: Big Data) · MIT Manipal
-```
+<table>
+<tr>
+<td align="center" width="100"><b>When</b></td>
+<td><b>What</b></td>
+</tr>
+<tr>
+<td align="center">2026 →</td>
+<td>🔬 &nbsp; <b>Research Assistant</b> · ASU College of Health Solutions</td>
+</tr>
+<tr>
+<td align="center">2026</td>
+<td>⚡ &nbsp; <b>ASU Energy Hackathon</b> · COLLIDE — built the whole pipeline solo</td>
+</tr>
+<tr>
+<td align="center">2025 → 27</td>
+<td>🎓 &nbsp; <b>MS Data Science</b> · Arizona State University</td>
+</tr>
+<tr>
+<td align="center">2025</td>
+<td>📊 &nbsp; <b>Data Science Intern</b> · GlobalLogic · Auth/RBAC platform analytics</td>
+</tr>
+<tr>
+<td align="center">2024</td>
+<td>💻 &nbsp; <b>SWE Intern</b> · GlobalLogic · GenAI platform backend</td>
+</tr>
+<tr>
+<td align="center">2021 → 25</td>
+<td>🎓 &nbsp; <b>B.Tech CS</b> (Big Data minor) · MIT Manipal</td>
+</tr>
+</table>
 
 <br/>
 
@@ -394,7 +419,7 @@ Store-level weekly demand with lagged/rolling features, holiday flags, and chron
 
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/Suhxs-Reddy/Suhxs-Reddy/output/github-contribution-grid-snake-dark.svg" />
-  <img alt="snake animation eating contributions" src="https://raw.githubusercontent.com/Suhxs-Reddy/Suhxs-Reddy/output/github-contribution-grid-snake.svg" width="100%" />
+  <img alt="contribution snake" src="https://raw.githubusercontent.com/Suhxs-Reddy/Suhxs-Reddy/output/github-contribution-grid-snake.svg" width="100%" />
 </picture>
 
 <br/>

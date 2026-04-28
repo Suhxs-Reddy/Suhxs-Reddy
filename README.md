@@ -29,7 +29,7 @@
 
 <div align="center">
 
-## <img src="https://api.iconify.design/fluent-emoji-flat/sparkles.svg" width="24" /> &nbsp; What I'm good at
+## <img src="https://api.iconify.design/lucide/sparkles.svg?color=%234ade80" width="22" /> &nbsp; What I'm good at
 
 </div>
 
@@ -39,7 +39,7 @@
 <tr>
 <td valign="top" width="33%" align="center">
 
-<img src="https://api.iconify.design/fluent-emoji-flat/eye.svg" width="40" />
+<img src="https://api.iconify.design/lucide/scan-eye.svg?color=%2314b8a6" width="36" />
 
 ### Computer vision in the wild
 
@@ -48,7 +48,7 @@ Noisy cameras, bad weather, ancient hardware. I build detectors that know where 
 </td>
 <td valign="top" width="33%" align="center">
 
-<img src="https://api.iconify.design/fluent-emoji-flat/robot.svg" width="40" />
+<img src="https://api.iconify.design/lucide/bot-message-square.svg?color=%23f59e0b" width="36" />
 
 ### LLM agents over real data
 
@@ -57,7 +57,7 @@ RAG, tool-use, LangGraph orchestration — grounded in live APIs, not toy demos.
 </td>
 <td valign="top" width="33%" align="center">
 
-<img src="https://api.iconify.design/fluent-emoji-flat/chart-increasing.svg" width="40" />
+<img src="https://api.iconify.design/lucide/trending-up.svg?color=%23fb7185" width="36" />
 
 ### Applied ML & DS
 
@@ -75,7 +75,7 @@ Time-series, clustering, geospatial scoring. The boring stuff that makes the int
 
 <div align="center">
 
-## <img src="https://api.iconify.design/fluent-emoji-flat/rocket.svg" width="24" /> &nbsp; Featured Projects
+## <img src="https://api.iconify.design/lucide/layers.svg?color=%234ade80" width="22" /> &nbsp; Featured Projects
 
 </div>
 
@@ -121,11 +121,11 @@ flowchart LR
 ```
 
 <table>
-<tr><td>🟢</td><td><strong>Live on HuggingFace Spaces right now.</strong> Collecting from all 90 cameras every 60 seconds — 80,000+ records and growing. Dataset publishing to Kaggle for open traffic research.</td></tr>
+<tr><td><img src="https://api.iconify.design/lucide/radio.svg?color=%234ade80" width="18" /></td><td><strong>Live on HuggingFace Spaces right now.</strong> Collecting from all 90 cameras every 60 seconds — 80,000+ records and growing. Dataset publishing to Kaggle for open traffic research.</td></tr>
 </table>
 
 <details>
-<summary>🔬 &nbsp;<b>the math, the numbers, what I actually built</b></summary>
+<summary><img src="https://api.iconify.design/lucide/flask-conical.svg?color=%2314b8a6" width="16" /> &nbsp;<b>the math, the numbers, what I actually built</b></summary>
 
 <br/>
 
@@ -187,11 +187,11 @@ flowchart LR
 ```
 
 <table>
-<tr><td>💡</td><td><strong>Built solo for ASU Energy Hackathon 2026.</strong> Collapses a multi-month consulting workflow into seconds.</td></tr>
+<tr><td><img src="https://api.iconify.design/lucide/zap.svg?color=%23f59e0b" width="18" /></td><td><strong>Built solo for ASU Energy Hackathon 2026.</strong> Collapses a multi-month consulting workflow into seconds.</td></tr>
 </table>
 
 <details>
-<summary>🧮 &nbsp;<b>model specs and numbers</b></summary>
+<summary><img src="https://api.iconify.design/lucide/binary.svg?color=%23f59e0b" width="16" /> &nbsp;<b>model specs and numbers</b></summary>
 
 <br/>
 
@@ -219,7 +219,7 @@ flowchart LR
 
 <div align="center">
 
-## <img src="https://api.iconify.design/fluent-emoji-flat/package.svg" width="24" /> &nbsp; Other things I've shipped
+## <img src="https://api.iconify.design/lucide/folder-git-2.svg?color=%234ade80" width="22" /> &nbsp; Other things I've shipped
 
 </div>
 
@@ -280,7 +280,7 @@ Store-level weekly demand with lagged/rolling features, holiday flags, and chron
 
 <div align="center">
 
-## <img src="https://api.iconify.design/fluent-emoji-flat/satellite-antenna.svg" width="24" /> &nbsp; Currently
+## <img src="https://api.iconify.design/lucide/radio-tower.svg?color=%234ade80" width="22" /> &nbsp; Currently
 
 </div>
 
@@ -290,7 +290,7 @@ Store-level weekly demand with lagged/rolling features, holiday flags, and chron
 <tr>
 <td width="50%" valign="top">
 
-📖 &nbsp; **Reading**
+<img src="https://api.iconify.design/lucide/book-open-text.svg?color=%23fbbf24" width="18" /> &nbsp; **Reading**
 - Perez et al. — *FiLM: Visual Reasoning with a General Conditioning Layer* (2018)
 - Salesforce — *Moirai* time-series foundation model
 - Anything on **applying foundation models to physical infrastructure**
@@ -298,7 +298,7 @@ Store-level weekly demand with lagged/rolling features, holiday flags, and chron
 </td>
 <td width="50%" valign="top">
 
-🛠️ &nbsp; **Building**
+<img src="https://api.iconify.design/lucide/wrench.svg?color=%23fb7185" width="18" /> &nbsp; **Building**
 - CATI — live on HF Spaces, collecting data for Kaggle dataset publication
 - COLLIDE — Vercel deploy + scaling beyond ERCOT to CAISO + PJM
 - Research Assistant work at ASU College of Health Solutions
@@ -315,7 +315,7 @@ Store-level weekly demand with lagged/rolling features, holiday flags, and chron
 
 <div align="center">
 
-## <img src="https://api.iconify.design/fluent-emoji-flat/hammer-and-wrench.svg" width="24" /> &nbsp; Stack
+## <img src="https://api.iconify.design/lucide/blocks.svg?color=%234ade80" width="22" /> &nbsp; Stack
 
 <br/>
 
@@ -324,7 +324,7 @@ Store-level weekly demand with lagged/rolling features, holiday flags, and chron
 <br/>
 
 <details>
-<summary>📋 &nbsp;<b>full stack breakdown</b></summary>
+<summary><img src="https://api.iconify.design/lucide/list-tree.svg?color=%23818cf8" width="16" /> &nbsp;<b>full stack breakdown</b></summary>
 
 <br/>
 
@@ -349,7 +349,7 @@ Store-level weekly demand with lagged/rolling features, holiday flags, and chron
 
 <div align="center">
 
-## <img src="https://api.iconify.design/fluent-emoji-flat/milky-way.svg" width="24" /> &nbsp; The path here
+## <img src="https://api.iconify.design/lucide/milestone.svg?color=%234ade80" width="22" /> &nbsp; The path here
 
 </div>
 
@@ -362,27 +362,27 @@ Store-level weekly demand with lagged/rolling features, holiday flags, and chron
 </tr>
 <tr>
 <td align="center">2026 →</td>
-<td>🔬 &nbsp; <b>Research Assistant</b> · ASU College of Health Solutions</td>
+<td><img src="https://api.iconify.design/lucide/microscope.svg?color=%2314b8a6" width="14" /> &nbsp; <b>Research Assistant</b> · ASU College of Health Solutions</td>
 </tr>
 <tr>
 <td align="center">2026</td>
-<td>⚡ &nbsp; <b>ASU Energy Hackathon</b> · COLLIDE — built the whole pipeline solo</td>
+<td><img src="https://api.iconify.design/lucide/zap.svg?color=%23f59e0b" width="14" /> &nbsp; <b>ASU Energy Hackathon</b> · COLLIDE — built the whole pipeline solo</td>
 </tr>
 <tr>
 <td align="center">2025 → 27</td>
-<td>🎓 &nbsp; <b>MS Data Science</b> · Arizona State University</td>
+<td><img src="https://api.iconify.design/lucide/graduation-cap.svg?color=%23818cf8" width="14" /> &nbsp; <b>MS Data Science</b> · Arizona State University</td>
 </tr>
 <tr>
 <td align="center">2025</td>
-<td>📊 &nbsp; <b>Data Science Intern</b> · GlobalLogic · Auth/RBAC platform analytics</td>
+<td><img src="https://api.iconify.design/lucide/bar-chart-3.svg?color=%23fb7185" width="14" /> &nbsp; <b>Data Science Intern</b> · GlobalLogic · Auth/RBAC platform analytics</td>
 </tr>
 <tr>
 <td align="center">2024</td>
-<td>💻 &nbsp; <b>SWE Intern</b> · GlobalLogic · GenAI platform backend</td>
+<td><img src="https://api.iconify.design/lucide/terminal.svg?color=%23fbbf24" width="14" /> &nbsp; <b>SWE Intern</b> · GlobalLogic · GenAI platform backend</td>
 </tr>
 <tr>
 <td align="center">2021 → 25</td>
-<td>🎓 &nbsp; <b>B.Tech CS</b> (Big Data minor) · MIT Manipal</td>
+<td><img src="https://api.iconify.design/lucide/graduation-cap.svg?color=%23818cf8" width="14" /> &nbsp; <b>B.Tech CS</b> (Big Data minor) · MIT Manipal</td>
 </tr>
 </table>
 

@@ -1,16 +1,14 @@
 <div align="center">
 
-<img src="https://capsule-render.vercel.app/api?type=venom&color=0:0d1117,50:4ade80,100:0d1117&height=240&section=header&text=Suhas%20Reddy&fontSize=68&fontColor=ffffff&fontAlignY=42&desc=Applied+AI+%E2%80%A2+Computer+Vision+%E2%80%A2+LLM+Systems&descSize=17&descAlignY=66&animation=fadeIn" width="100%" />
+<img src="https://capsule-render.vercel.app/api?type=venom&color=0:0d1117,50:4ade80,100:0d1117&height=240&section=header&text=Suhas%20Reddy&fontSize=68&fontColor=ffffff&fontAlignY=42&desc=MS+Data+Science+%C2%B7+Arizona+State+University&descSize=16&descAlignY=66&animation=fadeIn" width="100%" />
 
 <br/>
 
 <a href="mailto:sdonthi4@asu.edu"><img src="https://img.shields.io/badge/sdonthi4@asu.edu-4ade80?style=flat-square&logo=gmail&logoColor=4ade80&labelColor=0d1117" /></a>
 &nbsp;
-<a href="https://linkedin.com/in/suhas-reddy-msds/"><img src="https://img.shields.io/badge/linkedin/suhas--reddy--msds-818cf8?style=flat-square&logo=linkedin&logoColor=818cf8&labelColor=0d1117" /></a>
+<a href="https://linkedin.com/in/suhas-reddy-msds/"><img src="https://img.shields.io/badge/linkedin-suhas--reddy--msds-818cf8?style=flat-square&logo=linkedin&logoColor=818cf8&labelColor=0d1117" /></a>
 &nbsp;
-<img src="https://img.shields.io/badge/MS%20Data%20Science-ASU%20·%204.0%20GPA-fbbf24?style=flat-square&labelColor=0d1117" />
-&nbsp;
-<img src="https://img.shields.io/badge/From%20Manipal%20·%20Now%20Tempe-fb7185?style=flat-square&labelColor=0d1117" />
+<a href="https://github.com/Suhxs-Reddy"><img src="https://img.shields.io/badge/github-Suhxs--Reddy-e5e7eb?style=flat-square&logo=github&logoColor=e5e7eb&labelColor=0d1117" /></a>
 
 <br/>
 <br/>
@@ -384,7 +382,7 @@ Store-level weekly demand with lagged/rolling features, holiday flags, and chron
 ```
 2026 → present   Research Assistant · ASU College of Health Solutions
 2026             ASU Energy Hackathon · COLLIDE
-2025 → 2027      MS Data Science · Arizona State University · 4.0 GPA
+2025 → 2027      MS Data Science · Arizona State University
 2025             Data Science Intern · GlobalLogic · Auth/RBAC platform analytics
 2024             SWE Intern · GlobalLogic · GenAI platform backend
 2021 → 2025      B.Tech Computer Science (minor: Big Data) · MIT Manipal
@@ -404,6 +402,6 @@ Store-level weekly demand with lagged/rolling features, holiday flags, and chron
 
 <img src="https://capsule-render.vercel.app/api?type=waving&color=0:0d1117,50:4ade80,100:0d1117&height=120&section=footer" width="100%" />
 
-<sub>Built in Colab notebooks. Shipped on Vercel. Designed in Tempe.</sub>
+<sub>built in colab notebooks · shipped on vercel · fueled by caffeine</sub>
 
 </div>

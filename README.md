@@ -1,19 +1,19 @@
 <div align="center">
 
-<img src="https://capsule-render.vercel.app/api?type=waving&color=0:0d1117,50:4ade80,100:0d1117&height=240&section=header&text=Suhas%20Reddy&fontSize=68&fontColor=ffffff&fontAlignY=35&desc=MS+Data+Science+%C2%B7+Arizona+State+University&descSize=16&descAlignY=56&animation=fadeIn" width="100%" />
+<img src="https://capsule-render.vercel.app/api?type=waving&color=0:161b22,50:34d399,100:161b22&height=220&section=header&text=Suhas%20Reddy&fontSize=64&fontColor=f0f6fc&fontAlignY=36&desc=MS+Data+Science+%C2%B7+Arizona+State+University&descSize=15&descAlignY=56&descColor=9ca3af&animation=fadeIn" width="100%" />
 
 <br/>
 
-<a href="mailto:sdonthi4@asu.edu"><img src="https://img.shields.io/badge/sdonthi4@asu.edu-4ade80?style=flat-square&logo=gmail&logoColor=4ade80&labelColor=0d1117" /></a>
+<a href="mailto:sdonthi4@asu.edu"><img src="https://img.shields.io/badge/email-sdonthi4@asu.edu-161b22?style=for-the-badge&logo=gmail&logoColor=34d399" /></a>
 &nbsp;
-<a href="https://linkedin.com/in/suhas-reddy-msds/"><img src="https://img.shields.io/badge/linkedin-suhas--reddy--msds-818cf8?style=flat-square&logo=linkedin&logoColor=818cf8&labelColor=0d1117" /></a>
+<a href="https://linkedin.com/in/suhas-reddy-msds/"><img src="https://img.shields.io/badge/linkedin-suhas--reddy-161b22?style=for-the-badge&logo=linkedin&logoColor=818cf8" /></a>
 &nbsp;
-<a href="https://github.com/Suhxs-Reddy"><img src="https://img.shields.io/badge/github-Suhxs--Reddy-e5e7eb?style=flat-square&logo=github&logoColor=e5e7eb&labelColor=0d1117" /></a>
+<a href="https://github.com/Suhxs-Reddy"><img src="https://img.shields.io/badge/github-Suhxs--Reddy-161b22?style=for-the-badge&logo=github&logoColor=f0f6fc" /></a>
 
 <br/>
 <br/>
 
-<img src="https://readme-typing-svg.demolab.com?font=JetBrains+Mono&weight=600&size=22&duration=3000&pause=1200&color=22c55e&center=true&vCenter=true&width=435&lines=let+the+data+lead." />
+<img src="https://readme-typing-svg.demolab.com?font=Inter&weight=500&size=20&duration=4000&pause=2000&color=34d399&center=true&vCenter=true&width=320&lines=let+the+data+lead." />
 
 </div>
 
@@ -25,11 +25,11 @@
 
 <div align="center">
 
-<img src="https://img.shields.io/badge/computer%20vision-14b8a6?style=flat-square&labelColor=0d1117" />
+<img src="https://img.shields.io/badge/-computer%20vision-161b22?style=flat-square" />
 &nbsp;
-<img src="https://img.shields.io/badge/LLM%20agents-f59e0b?style=flat-square&labelColor=0d1117" />
+<img src="https://img.shields.io/badge/-LLM%20agents-161b22?style=flat-square" />
 &nbsp;
-<img src="https://img.shields.io/badge/applied%20ML-fb7185?style=flat-square&labelColor=0d1117" />
+<img src="https://img.shields.io/badge/-applied%20ML-161b22?style=flat-square" />
 
 </div>
 
@@ -57,7 +57,7 @@
 
 A traffic detector that adapts to weather, time, camera, and air quality in real time. FiLM layers ([Perez et al., 2018](https://arxiv.org/abs/1709.07871)) modulate YOLOv11's backbone — one model instead of ninety. ~130K extra parameters on 9.4M.
 
-<a href="https://github.com/Suhxs-Reddy/sg-smart-city-analytics"><img src="https://img.shields.io/badge/repo-0d1117?style=flat-square&logo=github&logoColor=14b8a6" /></a> &nbsp; <img src="https://img.shields.io/badge/status-live-4ade80?style=flat-square&labelColor=0d1117" /> &nbsp; <img src="https://img.shields.io/badge/records-80%2C000%2B-14b8a6?style=flat-square&labelColor=0d1117" />
+<a href="https://github.com/Suhxs-Reddy/sg-smart-city-analytics"><img src="https://img.shields.io/badge/repo-161b22?style=flat-square&logo=github&logoColor=f0f6fc" /></a> &nbsp; <img src="https://img.shields.io/badge/live-34d399?style=flat-square&labelColor=161b22" /> &nbsp; <img src="https://img.shields.io/badge/80%2C000%2B%20records-14b8a6?style=flat-square&labelColor=161b22" />
 
 <sub>`PyTorch` · `YOLOv11` · `FiLM` · `BoT-SORT` · `data.gov.sg` · `Docker` · `HuggingFace Spaces`</sub>
 
@@ -138,7 +138,7 @@ The system is live on HuggingFace Spaces, collecting from all 90 cameras every 6
 
 Where should you build a 100 MW behind-the-meter gas plant? Three ML models (land · gas · power) argue through TOPSIS, a LangGraph agent answers what-ifs in plain English, and Monte Carlo gives you P10/P50/P90 over 20 years. 10 live data sources. What takes consulting firms months happens in seconds.
 
-<a href="https://github.com/Suhxs-Reddy/EnergyHackathon"><img src="https://img.shields.io/badge/repo-0d1117?style=flat-square&logo=github&logoColor=f59e0b" /></a> &nbsp; <img src="https://img.shields.io/badge/hackathon-ASU%20Energy%202026-f59e0b?style=flat-square&labelColor=0d1117" /> &nbsp; <img src="https://img.shields.io/badge/built-solo-fbbf24?style=flat-square&labelColor=0d1117" />
+<a href="https://github.com/Suhxs-Reddy/EnergyHackathon"><img src="https://img.shields.io/badge/repo-161b22?style=flat-square&logo=github&logoColor=f0f6fc" /></a> &nbsp; <img src="https://img.shields.io/badge/ASU%20Energy%20Hackathon%202026-f59e0b?style=flat-square&labelColor=161b22" /> &nbsp; <img src="https://img.shields.io/badge/solo%20build-fbbf24?style=flat-square&labelColor=161b22" />
 
 <sub>`FastAPI` · `LangGraph` · `Claude` · `DuckDB` · `Leaflet` · `SHAP` · `Random Forest` · `KDE` · `GMM` · `Monte Carlo`</sub>
 
@@ -299,7 +299,7 @@ Store-level weekly demand with lagged/rolling features, holiday flags, and chron
 
 <div align="center">
 
-<img src="https://skillicons.dev/icons?i=python,pytorch,sklearn,fastapi,docker,aws,ts,react,nextjs,tailwind,vercel,git&perline=6&theme=dark" />
+<img src="https://skillicons.dev/icons?i=python,pytorch,sklearn,fastapi,docker,aws,ts,react,nextjs,tailwind,vercel,git&theme=dark" />
 
 </div>
 
@@ -345,6 +345,6 @@ Store-level weekly demand with lagged/rolling features, holiday flags, and chron
 <br/>
 <br/>
 
-<img src="https://capsule-render.vercel.app/api?type=waving&color=0:0d1117,50:4ade80,100:0d1117&height=120&section=footer" width="100%" />
+<img src="https://capsule-render.vercel.app/api?type=waving&color=0:161b22,50:34d399,100:161b22&height=100&section=footer" width="100%" />
 
 </div>

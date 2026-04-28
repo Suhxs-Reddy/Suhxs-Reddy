@@ -25,9 +25,11 @@
 
 <div align="center">
 
-<img src="https://api.iconify.design/lucide/scan-eye.svg?color=%2314b8a6" width="28" />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="https://api.iconify.design/lucide/bot-message-square.svg?color=%23f59e0b" width="28" />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="https://api.iconify.design/lucide/trending-up.svg?color=%23fb7185" width="28" />
-
-**Computer Vision** &nbsp;&nbsp;·&nbsp;&nbsp; **LLM Agents** &nbsp;&nbsp;·&nbsp;&nbsp; **Applied ML**
+<img src="https://img.shields.io/badge/computer%20vision-14b8a6?style=flat-square&labelColor=0d1117" />
+&nbsp;
+<img src="https://img.shields.io/badge/LLM%20agents-f59e0b?style=flat-square&labelColor=0d1117" />
+&nbsp;
+<img src="https://img.shields.io/badge/applied%20ML-fb7185?style=flat-square&labelColor=0d1117" />
 
 </div>
 
@@ -39,7 +41,7 @@
 
 <div align="center">
 
-## <img src="https://api.iconify.design/lucide/layers.svg?color=%234ade80" width="22" /> &nbsp; Featured Projects
+## Featured Projects
 
 </div>
 
@@ -51,7 +53,7 @@
 <tr>
 <td>
 
-### <img src="https://api.iconify.design/lucide/scan-eye.svg?color=%2314b8a6" width="20" /> &nbsp; CATI &nbsp;<sub><sup>Context-Aware Traffic Intelligence · Singapore</sup></sub>
+### CATI &nbsp;<sub><sup>Context-Aware Traffic Intelligence · Singapore</sup></sub>
 
 A traffic detector that adapts to weather, time, camera, and air quality in real time. FiLM layers ([Perez et al., 2018](https://arxiv.org/abs/1709.07871)) modulate YOLOv11's backbone — one model instead of ninety. ~130K extra parameters on 9.4M.
 
@@ -64,7 +66,7 @@ A traffic detector that adapts to weather, time, camera, and air quality in real
 </table>
 
 <details>
-<summary><img src="https://api.iconify.design/lucide/chevron-right.svg?color=%2314b8a6" width="14" /> &nbsp;<b>the full story — why I built this and how it works</b></summary>
+<summary> &nbsp;<b>→ the full story — why I built this and how it works</b></summary>
 
 <br/>
 
@@ -106,7 +108,7 @@ flowchart LR
 </details>
 
 <details>
-<summary><img src="https://api.iconify.design/lucide/flask-conical.svg?color=%2314b8a6" width="14" /> &nbsp;<b>the math and numbers</b></summary>
+<summary> &nbsp;<b>→ the math and numbers</b></summary>
 
 <br/>
 
@@ -132,7 +134,7 @@ The system is live on HuggingFace Spaces, collecting from all 90 cameras every 6
 <tr>
 <td>
 
-### <img src="https://api.iconify.design/lucide/zap.svg?color=%23f59e0b" width="20" /> &nbsp; COLLIDE &nbsp;<sub><sup>AI siting for gigawatt data centers</sup></sub>
+### COLLIDE &nbsp;<sub><sup>AI siting for gigawatt data centers</sup></sub>
 
 Where should you build a 100 MW behind-the-meter gas plant? Three ML models (land · gas · power) argue through TOPSIS, a LangGraph agent answers what-ifs in plain English, and Monte Carlo gives you P10/P50/P90 over 20 years. 10 live data sources. What takes consulting firms months happens in seconds.
 
@@ -145,7 +147,7 @@ Where should you build a 100 MW behind-the-meter gas plant? Three ML models (lan
 </table>
 
 <details>
-<summary><img src="https://api.iconify.design/lucide/chevron-right.svg?color=%23f59e0b" width="14" /> &nbsp;<b>the full story — the three-body problem of energy siting</b></summary>
+<summary> &nbsp;<b>→ the full story — the three-body problem of energy siting</b></summary>
 
 <br/>
 
@@ -185,7 +187,7 @@ flowchart LR
 </details>
 
 <details>
-<summary><img src="https://api.iconify.design/lucide/binary.svg?color=%23f59e0b" width="14" /> &nbsp;<b>model specs and numbers</b></summary>
+<summary> &nbsp;<b>→ model specs and numbers</b></summary>
 
 <br/>
 
@@ -208,7 +210,7 @@ flowchart LR
 <!-- ═══════════════════════ OTHER PROJECTS ═══════════════════════ -->
 
 <details>
-<summary><img src="https://api.iconify.design/lucide/folder-git-2.svg?color=%234ade80" width="16" /> &nbsp;<b>other things I've shipped</b></summary>
+<summary> &nbsp;<b>→ other things I've shipped</b></summary>
 
 <br/>
 
@@ -216,7 +218,7 @@ flowchart LR
 <tr>
 <td width="50%" valign="top">
 
-#### <img src="https://api.iconify.design/lucide/shield-check.svg?color=%23818cf8" width="20" /> &nbsp;[DataGuard](https://github.com/Suhxs-Reddy/KiroHackathon)
+#### [DataGuard](https://github.com/Suhxs-Reddy/KiroHackathon)
 *Chrome extension · Llama 3.1*
 
 Privacy policies are 5,000 words of legal jargon nobody reads. So you click "Accept" without knowing if a site sells your location. **I let an LLM do the reading for you** — Llama 3.1 parses the policy, breach-checks the domain on Have I Been Pwned, and generates one-click GDPR/CCPA opt-outs with pre-filled emails and follow-up reminders.
@@ -226,7 +228,7 @@ Privacy policies are 5,000 words of legal jargon nobody reads. So you click "Acc
 </td>
 <td width="50%" valign="top">
 
-#### <img src="https://api.iconify.design/lucide/graduation-cap.svg?color=%23fb7185" width="20" /> &nbsp;[AI Study Buddy](https://github.com/Suhxs-Reddy/CBC-Hackathon)
+#### [AI Study Buddy](https://github.com/Suhxs-Reddy/CBC-Hackathon)
 *Canvas LMS × Claude RAG*
 
 Generic chatbots hallucinate when your course material isn't in their training data. **I built a RAG tutor that knows when to shut up** — retrieves only from your real Canvas docs, with a low-relevance threshold that flags out-of-syllabus questions instead of inventing answers.
@@ -238,7 +240,7 @@ Generic chatbots hallucinate when your course material isn't in their training d
 <tr>
 <td width="50%" valign="top">
 
-#### <img src="https://api.iconify.design/lucide/heart-pulse.svg?color=%23f87171" width="20" /> &nbsp;[Hospital Unsupervised Learning](https://github.com/Suhxs-Reddy/DShospitalproject)
+#### [Hospital Unsupervised Learning](https://github.com/Suhxs-Reddy/DShospitalproject)
 *Patient clustering*
 
 Pattern discovery on hospital records — finding structure in unlabeled patient data when you don't yet know what the labels should be.
@@ -248,7 +250,7 @@ Pattern discovery on hospital records — finding structure in unlabeled patient
 </td>
 <td width="50%" valign="top">
 
-#### <img src="https://api.iconify.design/lucide/shopping-cart.svg?color=%2338bdf8" width="20" /> &nbsp;[Walmart Demand Forecast](https://github.com/Suhxs-Reddy/prediction)
+#### [Walmart Demand Forecast](https://github.com/Suhxs-Reddy/prediction)
 *Time-series · 45 stores*
 
 Store-level weekly demand with lagged/rolling features, holiday flags, and chronological splits — the boring forecasting that actually keeps shelves stocked.
@@ -271,7 +273,7 @@ Store-level weekly demand with lagged/rolling features, holiday flags, and chron
 <tr>
 <td width="50%" valign="top">
 
-<img src="https://api.iconify.design/lucide/book-open-text.svg?color=%23fbbf24" width="18" /> &nbsp; **Reading**
+**Reading**
 - Perez et al. — *FiLM: Visual Reasoning with a General Conditioning Layer* (2018)
 - Salesforce — *Moirai* time-series foundation model
 - Anything on **applying foundation models to physical infrastructure**
@@ -279,7 +281,7 @@ Store-level weekly demand with lagged/rolling features, holiday flags, and chron
 </td>
 <td width="50%" valign="top">
 
-<img src="https://api.iconify.design/lucide/wrench.svg?color=%23fb7185" width="18" /> &nbsp; **Building**
+**Building**
 - CATI — live on HF Spaces, collecting data for Kaggle dataset publication
 - COLLIDE — Vercel deploy + scaling beyond ERCOT to CAISO + PJM
 - Research Assistant work at ASU College of Health Solutions
@@ -291,7 +293,7 @@ Store-level weekly demand with lagged/rolling features, holiday flags, and chron
 <br/>
 
 <details>
-<summary><img src="https://api.iconify.design/lucide/blocks.svg?color=%234ade80" width="16" /> &nbsp;<b>stack</b></summary>
+<summary> &nbsp;<b>→ stack</b></summary>
 
 <br/>
 
@@ -316,18 +318,18 @@ Store-level weekly demand with lagged/rolling features, holiday flags, and chron
 <br/>
 
 <details>
-<summary><img src="https://api.iconify.design/lucide/milestone.svg?color=%234ade80" width="16" /> &nbsp;<b>the path here</b></summary>
+<summary> &nbsp;<b>→ the path here</b></summary>
 
 <br/>
 
 | | |
 |---|---|
-| **2026 →** | <img src="https://api.iconify.design/lucide/microscope.svg?color=%2314b8a6" width="14" /> &nbsp; **Research Assistant** · ASU College of Health Solutions |
-| **2026** | <img src="https://api.iconify.design/lucide/zap.svg?color=%23f59e0b" width="14" /> &nbsp; **ASU Energy Hackathon** · COLLIDE — built the whole pipeline solo |
-| **2025 → 27** | <img src="https://api.iconify.design/lucide/graduation-cap.svg?color=%23818cf8" width="14" /> &nbsp; **MS Data Science** · Arizona State University |
-| **2025** | <img src="https://api.iconify.design/lucide/bar-chart-3.svg?color=%23fb7185" width="14" /> &nbsp; **Data Science Intern** · GlobalLogic · Auth/RBAC platform analytics |
-| **2024** | <img src="https://api.iconify.design/lucide/terminal.svg?color=%23fbbf24" width="14" /> &nbsp; **SWE Intern** · GlobalLogic · GenAI platform backend |
-| **2021 → 25** | <img src="https://api.iconify.design/lucide/graduation-cap.svg?color=%23818cf8" width="14" /> &nbsp; **B.Tech CS** (Big Data minor) · MIT Manipal |
+| **2026 →** | **Research Assistant** · ASU College of Health Solutions |
+| **2026** | **ASU Energy Hackathon** · COLLIDE — built the whole pipeline solo |
+| **2025 → 27** | **MS Data Science** · Arizona State University |
+| **2025** | **Data Science Intern** · GlobalLogic · Auth/RBAC platform analytics |
+| **2024** | **SWE Intern** · GlobalLogic · GenAI platform backend |
+| **2021 → 25** | **B.Tech CS** (Big Data minor) · MIT Manipal |
 
 </details>
 

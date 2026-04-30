@@ -22,9 +22,7 @@
 
 <br/>
 
-<a href="https://readme-typing-svg.demolab.com">
-  <img src="https://readme-typing-svg.demolab.com?font=JetBrains+Mono&weight=500&size=18&duration=2800&pause=900&color=64FFDA&width=720&lines=I+find+the+data+models+haven't+been+told+to+see.;Computer+vision+%C2%B7+LLM+agents+%C2%B7+real-world+ML.;Currently+building+CATI+for+Singapore+%2B+COLLIDE+for+gigawatt+power." alt="typing intro" />
-</a>
+<img src="https://readme-typing-svg.demolab.com?font=JetBrains+Mono&weight=500&size=18&duration=4000&pause=2000&color=A7F3D0&width=320&lines=let+the+data+lead." alt="let the data lead." />
 
 <br/>
 

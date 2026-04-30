@@ -253,7 +253,7 @@ Store-level weekly demand for 45 stores. Lagged/rolling features, holiday flags,
 
 **Reading.** &nbsp; Perez et al. on FiLM (2018). Salesforce's *Moirai* time-series foundation model. Anything on **applying foundation models to physical infrastructure** — gas, power, traffic, water.
 
-**Building.** &nbsp; CATI live on HuggingFace Spaces, collecting from 90 cameras every 60 seconds. COLLIDE deploying to Vercel and scaling beyond ERCOT to CAISO and PJM. Research Assistant work at ASU College of Health Solutions.
+**Building.** &nbsp; **CATI** is live on HuggingFace Spaces and collecting from 90 cameras every 60 seconds — currently fine-tuning, plugging in the missing pieces, waiting for the dataset to have a true distribution before running real traffic analysis on top. **COLLIDE** is shipped and parked — not touching it for a while. Research Assistant work at ASU College of Health Solutions is the day job.
 
 **Thinking about.** &nbsp; The fact that 90% of useful ML signals are public datasets nobody bothered to wire up. The next CATI-shaped project. How to make agents that *fail* gracefully instead of hallucinating confidently.
 

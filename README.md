@@ -2,16 +2,16 @@
   Suhas Reddy · GitHub Profile README
   Design language:
     · primary accent: #64ffda (mint green) — section numbers, project years, primary links
-    · category accents:
-        - vision  → #14b8a6 (teal)
-        - agents  → #a78bfa (violet)
-        - energy  → #fbbf24 (amber)
-        - data    → #fb7185 (coral)
+    · category accents (lighter Tailwind tones for dark-mode readability):
+        - vision  → #22d3ee (cyan)
+        - agents  → #c4b5fd (lavender)
+        - energy  → #fb923c (warm orange)
+        - data    → #fda4af (soft coral)
     · numbered section prefixes — primary structural motif
     · year-prefixed project headers — secondary motif
     · left-aligned, no centered body content
     · whitespace as primary structural element
-    · dynamic elements: typing intro · activity graph · snake · gradient project headers
+    · dynamic elements: typing intro · contribution snake
 -->
 
 <br/>
@@ -32,11 +32,11 @@
 
 <br/>
 
-<img src="https://img.shields.io/badge/computer%20vision-0d1117?style=flat&labelColor=0d1117&color=14b8a6" />
+<img src="https://img.shields.io/badge/computer%20vision-0d1117?style=flat&labelColor=0d1117&color=22d3ee" />
 &nbsp;
-<img src="https://img.shields.io/badge/LLM%20agents-0d1117?style=flat&labelColor=0d1117&color=a78bfa" />
+<img src="https://img.shields.io/badge/LLM%20agents-0d1117?style=flat&labelColor=0d1117&color=c4b5fd" />
 &nbsp;
-<img src="https://img.shields.io/badge/applied%20ML-0d1117?style=flat&labelColor=0d1117&color=fb7185" />
+<img src="https://img.shields.io/badge/applied%20ML-0d1117?style=flat&labelColor=0d1117&color=fda4af" />
 
 <br/>
 <br/>
@@ -58,9 +58,9 @@ The fun part isn't tuning the model. **It's noticing what the model can't see.**
 
 <br/>
 
-<img src="https://capsule-render.vercel.app/api?type=transparent&color=14b8a6&height=2&fontColor=14b8a6&text=." width="100%" />
+<img src="https://capsule-render.vercel.app/api?type=transparent&color=22d3ee&height=2&fontColor=22d3ee&text=." width="100%" />
 
-### `'26` &nbsp; CATI &nbsp; <img src="https://img.shields.io/badge/computer%20vision-14b8a6?style=flat-square&labelColor=0d1117" />
+### `'26` &nbsp; CATI &nbsp; <img src="https://img.shields.io/badge/computer%20vision-22d3ee?style=flat-square&labelColor=0d1117" />
 
 <sub>Context-Aware Traffic Intelligence · Singapore · solo build · live</sub>
 
@@ -68,7 +68,7 @@ A traffic detector that adapts to weather, time, camera, and air quality in real
 
 <table><tr>
 <td align="center"><h3>90</h3><sub>live LTA cameras</sub></td>
-<td align="center"><h3 style="color:#14b8a6">1.4%</h3><sub>parameter overhead</sub></td>
+<td align="center"><h3 style="color:#22d3ee">1.4%</h3><sub>parameter overhead</sub></td>
 <td align="center"><h3>80K+</h3><sub>records on HF Spaces</sub></td>
 <td align="center"><h3>2018</h3><sub>FiLM, applied here first</sub></td>
 </tr></table>
@@ -97,7 +97,7 @@ feature_out = γ(context) ⊙ feature_in + β(context)
 A tiny encoder (MLP) processes weather code, temperature, sin/cos hour-of-day, a 16-dim camera ID embedding (learned per camera), resolution, and PM2.5, then predicts γ and β for the P3/P4/P5 stages of YOLOv11's backbone. Identity initialization (γ=1, β=0) means day zero is exactly vanilla YOLO.
 
 ```mermaid
-%%{init: {'theme':'dark', 'themeVariables': {'primaryColor':'#14b8a6','primaryBorderColor':'#14b8a6','lineColor':'#64ffda','primaryTextColor':'#e5e7eb','background':'#0d1117'}}}%%
+%%{init: {'theme':'dark', 'themeVariables': {'primaryColor':'#22d3ee','primaryBorderColor':'#22d3ee','lineColor':'#64ffda','primaryTextColor':'#e5e7eb','background':'#0d1117'}}}%%
 flowchart LR
     CTX[live context<br/>weather · time · camera · PM2.5] --> ENC[MLP encoder<br/>γ, β]
     IMG[camera frame] --> BB[YOLOv11 backbone]
@@ -114,9 +114,9 @@ flowchart LR
 <br/>
 <br/>
 
-<img src="https://capsule-render.vercel.app/api?type=transparent&color=fbbf24&height=2&fontColor=fbbf24&text=." width="100%" />
+<img src="https://capsule-render.vercel.app/api?type=transparent&color=fb923c&height=2&fontColor=fb923c&text=." width="100%" />
 
-### `'26` &nbsp; COLLIDE &nbsp; <img src="https://img.shields.io/badge/LLM%20agent-a78bfa?style=flat-square&labelColor=0d1117" /> &nbsp; <img src="https://img.shields.io/badge/energy-fbbf24?style=flat-square&labelColor=0d1117" />
+### `'26` &nbsp; COLLIDE &nbsp; <img src="https://img.shields.io/badge/LLM%20agent-c4b5fd?style=flat-square&labelColor=0d1117" /> &nbsp; <img src="https://img.shields.io/badge/energy-fb923c?style=flat-square&labelColor=0d1117" />
 
 <sub>AI siting for gigawatt data centers · ASU Energy Hackathon 2026 · solo build</sub>
 
@@ -124,7 +124,7 @@ Where do you build a 100 MW behind-the-meter gas plant? Three ML models — Rand
 
 <table><tr>
 <td align="center"><h3>50–500</h3><sub>MW per site</sub></td>
-<td align="center"><h3 style="color:#fbbf24">3 → 7</h3><sub>year grid wait, dodged</sub></td>
+<td align="center"><h3 style="color:#fb923c">3 → 7</h3><sub>year grid wait, dodged</sub></td>
 <td align="center"><h3>10K</h3><sub>Monte Carlo scenarios</sub></td>
 <td align="center"><h3>5 min</h3><sub>live market refresh</sub></td>
 </tr></table>
@@ -155,7 +155,7 @@ Wired to ten public data sources — PHMSA pipeline incidents, ERCOT and CAISO L
 | `config` | extract config JSON (Sonnet) | *"Set gas weight to 50%"* |
 
 ```mermaid
-%%{init: {'theme':'dark', 'themeVariables': {'primaryColor':'#fbbf24','primaryBorderColor':'#fbbf24','lineColor':'#64ffda','primaryTextColor':'#e5e7eb','background':'#0d1117'}}}%%
+%%{init: {'theme':'dark', 'themeVariables': {'primaryColor':'#fb923c','primaryBorderColor':'#fb923c','lineColor':'#64ffda','primaryTextColor':'#e5e7eb','background':'#0d1117'}}}%%
 flowchart LR
     SRC[10 public sources<br/>PHMSA · ERCOT · CAISO · EIA · GridStatus<br/>NOAA · PERM-A · FCC · FEMA · Tavily] --> ETL[DuckDB · Parquet · Pandera]
     ETL --> M1[Land<br/>Random Forest]
@@ -179,7 +179,7 @@ Background jobs: GridStatus + Waha + regime every 5 min, Tavily news every 30 mi
 
 <br/>
 
-### `'25` &nbsp; DataGuard &nbsp; <img src="https://img.shields.io/badge/Chrome%20extension-a78bfa?style=flat-square&labelColor=0d1117" />
+### `'25` &nbsp; DataGuard &nbsp; <img src="https://img.shields.io/badge/Chrome%20extension-c4b5fd?style=flat-square&labelColor=0d1117" />
 
 I let an LLM read the privacy policy for you. Llama 3.1 parses any site's policy, breach-checks the domain on Have I Been Pwned, and generates one-click GDPR/CCPA opt-outs with pre-filled emails and follow-up calendar reminders.
 
@@ -189,7 +189,7 @@ I let an LLM read the privacy policy for you. Llama 3.1 parses any site's policy
 
 <br/>
 
-### `'25` &nbsp; AI Study Buddy &nbsp; <img src="https://img.shields.io/badge/RAG-a78bfa?style=flat-square&labelColor=0d1117" />
+### `'25` &nbsp; AI Study Buddy &nbsp; <img src="https://img.shields.io/badge/RAG-c4b5fd?style=flat-square&labelColor=0d1117" />
 
 A RAG tutor that knows when to shut up. Retrieves only from your real Canvas docs, with a low-relevance threshold that flags out-of-syllabus questions instead of inventing answers.
 
@@ -199,7 +199,7 @@ A RAG tutor that knows when to shut up. Retrieves only from your real Canvas doc
 
 <br/>
 
-### `'25` &nbsp; Hospital Unsupervised Learning &nbsp; <img src="https://img.shields.io/badge/clustering-fb7185?style=flat-square&labelColor=0d1117" />
+### `'25` &nbsp; Hospital Unsupervised Learning &nbsp; <img src="https://img.shields.io/badge/clustering-fda4af?style=flat-square&labelColor=0d1117" />
 
 Pattern discovery on hospital records. Finding structure when you don't yet know what the labels should be.
 
@@ -209,7 +209,7 @@ Pattern discovery on hospital records. Finding structure when you don't yet know
 
 <br/>
 
-### `'24` &nbsp; Walmart Demand Forecast &nbsp; <img src="https://img.shields.io/badge/time--series-fb7185?style=flat-square&labelColor=0d1117" />
+### `'24` &nbsp; Walmart Demand Forecast &nbsp; <img src="https://img.shields.io/badge/time--series-fda4af?style=flat-square&labelColor=0d1117" />
 
 Store-level weekly demand for 45 stores. Lagged/rolling features, holiday flags, chronological splits. The boring forecasting that keeps shelves stocked.
 
@@ -279,10 +279,6 @@ The fastest way is [**email**](mailto:sdonthi4@asu.edu). I'm always happy to tal
   <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/Suhxs-Reddy/Suhxs-Reddy/output/github-contribution-grid-snake-dark.svg" />
   <img alt="contribution snake" src="https://raw.githubusercontent.com/Suhxs-Reddy/Suhxs-Reddy/output/github-contribution-grid-snake.svg" width="100%" />
 </picture>
-
-<br/>
-
-<img src="https://github-readme-activity-graph.vercel.app/graph?username=Suhxs-Reddy&theme=react-dark&hide_border=true&bg_color=0d1117&color=64ffda&line=64ffda&point=fbbf24&area=true&area_color=14b8a6&radius=8" width="100%" />
 
 <br/>
 <br/>

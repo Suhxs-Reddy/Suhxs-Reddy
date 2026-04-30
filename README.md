@@ -155,18 +155,24 @@ Every AI hyperscaler needs power — gigawatts of it, twenty-four seven. Connect
 
 I wanted the three to **argue with each other in real time** instead of sequentially. A great parcel with bad gas economics shouldn't beat a decent parcel with stellar gas economics, but spreadsheets can't tell you that. So I gave each axis its own ML model — a Random Forest for land (interpretable, gives me SHAP), a GPU Gaussian KDE for gas pipeline reliability (because incidents cluster spatially and KDE reads that distribution out cleanly), and a Random Forest plus GMM for power markets (because electricity really does have distinct regimes — normal, wind-curtailment, scarcity — and the GMM finds them in unlabeled ERCOT data without me having to tag anything). They all feed into TOPSIS, a multi-criteria scoring method from 1981 that's still the cleanest way to combine apples and oranges with adjustable weights.
 
-The interesting layer sits on top: a LangGraph agent running Claude. Five intents — stress-test, compare, timing, explain, configure. You ask *"what if gas prices spike 30%?"* in plain English and the system actually re-runs the analysis on live ERCOT and CAISO feeds.
+The interesting layer sits on top: a **7-node LangGraph StateGraph** running Claude. Every query first hits a `parse_intent` node that routes to one of five tool-running nodes — *stress-test, compare, timing, explanation, config* — then converges at a synthesis node that streams the answer back as SSE tokens. You ask *"what if gas prices spike 30%?"* in plain English and the system actually re-runs the analysis on live ERCOT and CAISO feeds.
 
-The whole thing is wired to ten public data sources updating every five minutes. Click any coordinate. Get a scorecard with quantified risk, a 20-year cost forecast from 10,000 Monte Carlo simulations, and a 72-hour LMP forecast from the **Moirai foundation model**. What used to take consulting firms months happens while you're still scrolling.
+The whole thing is wired to ten public data sources — PHMSA pipeline incidents, ERCOT and CAISO LMP, EIA gas prices, NOAA weather, **PERM-A** federal land ownership, FCC fiber maps, FEMA flood zones, GridStatus, and live Tavily web enrichment — refreshing every five minutes through APScheduler background jobs. Every dataset goes through Pandera schema validation; bad rows get quarantined, never silently dropped. Click any coordinate across Texas, New Mexico, or Arizona — ERCOT or WECC market — and you get a scorecard with quantified risk, a 20-year cost forecast from 10,000 Monte Carlo simulations, and a 72-hour LMP forecast from the **Moirai foundation model**. What used to take consulting firms months happens while you're still scrolling.
 
 ```mermaid
 %%{init: {'theme':'dark', 'themeVariables': {'primaryColor':'#f59e0b','primaryBorderColor':'#f59e0b','lineColor':'#4ade80','primaryTextColor':'#e5e7eb','background':'#0d1117'}}}%%
 flowchart LR
     subgraph SRC["10 public data sources · live"]
-        S1[PHMSA pipelines]
-        S2[ERCOT / CAISO]
-        S3[county GIS]
-        S4[Waha hub]
+        S1[PHMSA<br/>pipeline incidents]
+        S2[ERCOT LMP]
+        S3[CAISO OASIS]
+        S4[EIA<br/>gas + BA demand]
+        S5[GridStatus]
+        S6[NOAA NWS]
+        S7[PERM-A<br/>federal land]
+        S8[FCC HIFLD<br/>fiber]
+        S9[FEMA<br/>flood zones]
+        S10[Tavily<br/>web enrichment]
     end
     SRC --> M1["Land<br/>Random Forest"]
     SRC --> M2["Gas<br/>GPU KDE"]
@@ -201,7 +207,17 @@ flowchart LR
 
 **NPV — Monte Carlo, 10,000 scenarios, 8% WACC, 100 MW plant assumption.** Returns P10/P50/P90 over 20 years.
 
-**Agent — LangGraph orchestration, Claude Haiku + Sonnet.** Five intents: stress-test, compare, timing, explain, configure. Live market refresh every 5 minutes. 72-hour LMP forecast via Moirai with confidence bands.
+**Agent — 7-node LangGraph StateGraph, Claude Haiku + Sonnet.** `parse_intent` (Sonnet, with heuristic fallback) routes to one of five tool-running nodes:
+
+| Intent | Tools called | Trigger example |
+|---|---|---|
+| `stress_test` | `evaluate_site`, `run_monte_carlo` | *"What if gas spikes 40%?"* |
+| `compare` | `compare_sites`, `evaluate_site` | *"Compare my pinned sites"* |
+| `timing` | `get_lmp_forecast`, `get_news_digest` | *"When should I build?"* |
+| `explanation` | SHAP from active scorecard | *"Why is land score low?"* |
+| `config` | extract config JSON (Sonnet) | *"Set gas weight to 50%"* |
+
+Then a `synthesize` node streams the answer back as SSE tokens. **Background jobs:** GridStatus + Waha + regime every 5 min, Tavily news every 30 min, Moirai forecast every hour. Live ERCOT LMP also pushes via WebSocket at `/ws/lmp/stream`.
 
 </details>
 

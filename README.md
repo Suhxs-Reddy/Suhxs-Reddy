@@ -78,7 +78,7 @@ A traffic detector that adapts to weather, time, camera, and air quality in real
 [**Read the full story →**](https://github.com/Suhxs-Reddy/sg-smart-city-analytics)
 
 <details>
-<summary><sub>The full story · how it works · the math</sub></summary>
+<summary><sub>Inspiration & approach</sub></summary>
 
 <br/>
 
@@ -86,15 +86,28 @@ Singapore runs ninety traffic cameras around the clock. Some are 1080p. Eleven a
 
 I kept staring at this and thinking: **the model already has access to everything it needs to do better.** The camera knows which camera it is. The system has live weather. The clock is right there. The PM2.5 air-quality index is one public API call away. So why is a clear afternoon highway and a rain-soaked midnight feed processed the same way?
 
-The answer turned out to live in a 2018 paper — **FiLM** (*Feature-wise Linear Modulation*). Tiny modules that take an external signal and use it to **scale and shift the network's internal features**. Identity at initialization, so the model starts as plain YOLO and only specializes where it actually helps. No retraining. No ensemble. One model, with a dial for context.
+The answer turned out to live in a 2018 paper — **FiLM** (*Feature-wise Linear Modulation*, Perez et al.). Tiny modules that take an external signal and use it to **scale and shift the network's internal features**. Three reasons it was the right tool:
+
+- **Identity at initialization.** γ=1, β=0 means day zero is exactly vanilla YOLO — the model only specializes where it helps loss. No regression risk.
+- **Tiny.** ~130K parameters on YOLO's 9.4M. A 1.4% overhead with negligible inference cost.
+- **No retraining.** One model, with a dial for context. Not ninety separate models. Not an ensemble.
+
+</details>
+
+<details>
+<summary><sub>The full story · how it works · the math</sub></summary>
+
+<br/>
 
 Picture the vision network as layers of pattern detectors stacked on top of each other. With FiLM, I dial each detector's volume up or down based on the current weather, time, camera, and air quality. In monsoon rain, the detectors looking for crisp edges get turned down. The ones looking for blurry motion blobs get turned up. At 2am on Camera #47, the network behaves differently than at 2pm on Camera #12. The model figures out the dialing on its own — I just feed it the current state of the world.
+
+The FiLM transform itself is two affine parameters per channel:
 
 ```
 feature_out = γ(context) ⊙ feature_in + β(context)
 ```
 
-A tiny encoder (MLP) processes weather code, temperature, sin/cos hour-of-day, a 16-dim camera ID embedding (learned per camera), resolution, and PM2.5, then predicts γ and β for the P3/P4/P5 stages of YOLOv11's backbone. Identity initialization (γ=1, β=0) means day zero is exactly vanilla YOLO.
+A tiny encoder (MLP) processes weather code, temperature, sin/cos hour-of-day, a 16-dim camera ID embedding (learned per camera), resolution, and PM2.5, then predicts γ and β for the P3/P4/P5 stages of YOLOv11's backbone. Each of the 90 cameras gets its own learned embedding that captures viewpoint and quirks.
 
 ```mermaid
 %%{init: {'theme':'dark', 'themeVariables': {'primaryColor':'#22d3ee','primaryBorderColor':'#22d3ee','lineColor':'#64ffda','primaryTextColor':'#e5e7eb','background':'#0d1117'}}}%%
@@ -108,6 +121,8 @@ flowchart LR
     F1 & F2 & F3 --> H[detection head]
     H --> OUT[vehicles · plates · tracks]
 ```
+
+The system is live on HuggingFace Spaces, polling all 90 cameras every 60 seconds. 80,000+ records and growing. Dataset publishing to Kaggle for open traffic research.
 
 </details>
 
@@ -134,17 +149,30 @@ Where do you build a 100 MW behind-the-meter gas plant? Three ML models — Rand
 [**Read the full story →**](https://github.com/Suhxs-Reddy/EnergyHackathon)
 
 <details>
-<summary><sub>The full story · how it works · agent intents</sub></summary>
+<summary><sub>Inspiration & approach</sub></summary>
 
 <br/>
 
 Every AI hyperscaler needs power — gigawatts of it, twenty-four seven. Connecting a new data center to the grid takes three to seven years. Your competitors aren't waiting. So you build your own natural-gas plant on-site, behind the meter. The catch is picking *where*, and the catch is brutal: it's a three-body problem. Land has its own constraints (zoning, fiber, water, flood). Gas supply has its own (pipeline reliability, hub distance, curtailment risk). Electricity markets have their own (LMP spreads, price regimes, scarcity events). Real consultants charge six figures and take months because they evaluate these axes one at a time.
 
-I wanted the three to **argue with each other in real time** instead of sequentially. So I gave each axis its own ML model — a Random Forest for land (interpretable, gives me SHAP), a GPU Gaussian KDE for gas pipeline reliability (because incidents cluster spatially), and a Random Forest plus GMM for power markets (because electricity has distinct regimes — normal, wind-curtailment, scarcity — and the GMM finds them in unlabeled ERCOT data without me having to tag anything). They all feed into TOPSIS, a multi-criteria scoring method from 1981 that's still the cleanest way to combine apples and oranges with adjustable weights.
+I wanted the three to **argue with each other in real time** instead of sequentially. A great parcel with bad gas economics shouldn't beat a decent parcel with stellar gas economics, but spreadsheets can't tell you that. So I gave each axis its own ML model — picked deliberately, not by default:
 
-The interesting layer sits on top: a **7-node LangGraph StateGraph** running Claude. Every query first hits a `parse_intent` node that routes to one of five tool-running nodes — *stress-test, compare, timing, explanation, config* — then converges at a synthesis node that streams the answer back as SSE tokens. You ask *"what if gas prices spike 30%?"* in plain English and the system actually re-runs the analysis on live ERCOT and CAISO feeds.
+- **Land → Random Forest.** Parcel features are tabular and noisy. RFs handle that gracefully and give per-site SHAP attributions, so I can explain *why* a site scored where it did.
+- **Gas → GPU Gaussian KDE.** Pipeline incidents cluster spatially. KDE reads that distribution out cleanly without needing labels, and PHMSA's incident database is public and severity-tagged.
+- **Power → Random Forest + GMM.** The market itself has distinct regimes — normal, wind-curtailment, scarcity. A 3-component GMM finds them in unlabeled ERCOT data. The RF then predicts spread durability conditioned on the regime.
+- **Composite → TOPSIS.** A multi-criteria decision method from 1981 that's still the cleanest way to combine apples and oranges with user-adjustable weights.
+- **Agent → 7-node LangGraph + Claude.** Five intents — *stress-test, compare, timing, explanation, config* — let a human drive the analysis without writing code. Routes through `parse_intent` → tool node → `synthesize` and streams back as SSE tokens.
 
-Wired to ten public data sources — PHMSA pipeline incidents, ERCOT and CAISO LMP, EIA gas prices, NOAA weather, **PERM-A** federal land ownership, FCC fiber maps, FEMA flood zones, GridStatus, and live Tavily web enrichment — refreshing every five minutes through APScheduler background jobs. Pandera schema validation gates every row.
+</details>
+
+<details>
+<summary><sub>The full story · how it works · agent intents</sub></summary>
+
+<br/>
+
+Click any coordinate across Texas, New Mexico, or Arizona — ERCOT or WECC market — and the system pulls live market data, looks up the parcel, scores all three axes, blends them through TOPSIS, and runs **10,000 Monte Carlo simulations** to give you P10/P50/P90 cost ranges over the next 20 years. A LangGraph agent on top of Claude reads all of that — plus 72-hour LMP forecasts from the **Moirai foundation model** — and answers your follow-up questions in plain English. *"What if gas prices spike 30%?"* re-runs the analysis on live ERCOT and CAISO feeds.
+
+Wired to ten public data sources — PHMSA pipeline incidents, ERCOT and CAISO LMP, EIA gas prices, NOAA weather, **PERM-A** federal land ownership, FCC fiber maps, FEMA flood zones, GridStatus, and live Tavily web enrichment — refreshing every five minutes through APScheduler background jobs. Pandera schema validation gates every row; failures get quarantined, never silently dropped.
 
 | Intent | Tools called | Trigger |
 |---|---|---|

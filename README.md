@@ -249,7 +249,7 @@ Store-level weekly demand for 45 stores. Lagged/rolling features, holiday flags,
 
 ## <sub><code>04.</code></sub> &nbsp;Currently
 
-**Reading.** &nbsp; Perez et al. on FiLM (2018). Salesforce's *Moirai* time-series foundation model. Anything on **applying foundation models to physical infrastructure** — gas, power, traffic, water.
+**Reading.** &nbsp; Anil Ananthaswamy — *Why Machines Learn*. Liu Cixin — *Remembrance of Earth's Past* (the trilogy that made me think about civilizations optimizing under uncertainty). Martian Manhunter — latest issue, waiting on the next one.
 
 **Building.** &nbsp; **CATI** is live on HuggingFace Spaces and collecting from 90 cameras every 60 seconds — currently fine-tuning, plugging in the missing pieces, waiting for the dataset to have a true distribution before running real traffic analysis on top. **COLLIDE** is shipped and parked — not touching it for a while. Research Assistant work at ASU College of Health Solutions is the day job.
 
@@ -281,7 +281,7 @@ Store-level weekly demand for 45 stores. Lagged/rolling features, holiday flags,
 
 **`2026`** &nbsp; **ASU Energy Hackathon** — COLLIDE, solo pipeline build
 
-**`2025 → 27`** &nbsp; **MS Data Science** — Arizona State University · 4.0 GPA
+**`2025 → 27`** &nbsp; **MS Data Science** — Arizona State University
 
 **`2025`** &nbsp; **Data Science Intern** — GlobalLogic · Auth/RBAC platform analytics (Grafana, Athena, S3)
 
@@ -309,4 +309,4 @@ The fastest way is [**email**](mailto:sdonthi4@asu.edu). I'm always happy to tal
 <br/>
 <br/>
 
-<sub>Built in Colab. Shipped on Vercel. Designed in Tempe.</sub>
+

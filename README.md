@@ -249,7 +249,7 @@ Store-level weekly demand for 45 stores. Lagged/rolling features, holiday flags,
 
 ## <sub><code>04.</code></sub> &nbsp;Currently
 
-**Reading.** &nbsp; Anil Ananthaswamy — *Why Machines Learn*. Liu Cixin — *Remembrance of Earth's Past* (the trilogy that made me think about civilizations optimizing under uncertainty). Martian Manhunter — latest issue, waiting on the next one.
+**Reading.** &nbsp; *Why Machines Learn* (Anil Ananthaswamy) — the math under the hood of modern ML, from the perceptron up through transformers. Liu Cixin's **Remembrance of Earth's Past** trilogy: *The Three-Body Problem* (first contact framed against the Cultural Revolution; an alien civilization on a planet caught between three suns, and the sophons that quietly freeze human physics), *The Dark Forest* (a 400-year invasion countdown, the Wallfacer gambit, and the cosmic sociology the trilogy is named for — every civilization a silent hunter), *Death's End* (deep time, dimensional weapons, the universe collapsing back from three dimensions to two). And **Absolute Martian Manhunter** (Deniz Camp / Javier Rodríguez) — caught up through #10; **#11** lands April 22.
 
 **Building.** &nbsp; **CATI** is live on HuggingFace Spaces and collecting from 90 cameras every 60 seconds — currently fine-tuning, plugging in the missing pieces, waiting for the dataset to have a true distribution before running real traffic analysis on top. **COLLIDE** is shipped and parked — not touching it for a while. Research Assistant work at ASU College of Health Solutions is the day job.
 

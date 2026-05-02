@@ -249,7 +249,7 @@ Store-level weekly demand for 45 stores. Lagged/rolling features, holiday flags,
 
 ## <sub><code>04.</code></sub> &nbsp;Currently
 
-**Reading.** &nbsp; Recently finished *Why Machines Learn* (Anil Ananthaswamy) and Liu Cixin's *Three-Body* trilogy. Currently on *Absolute Martian Manhunter* (Deniz Camp / Javier Rodríguez) — through #10; #11 (April 22) next. On deck: *Darwin's Radio* (Greg Bear), *Annihilation* (Jeff VanderMeer).
+**Reading.** &nbsp; Recently finished *Why Machines Learn* (Anil Ananthaswamy) and Liu Cixin's trilogy — *The Three-Body Problem*, *The Dark Forest*, *Death's End*. Currently on *Absolute Martian Manhunter* (Deniz Camp / Javier Rodríguez) — through #10; #11 (April 22) next. On deck: *Darwin's Radio* (Greg Bear), *Annihilation* (Jeff VanderMeer).
 
 **Building.** &nbsp; **CATI** is live on HuggingFace Spaces and collecting from 90 cameras every 60 seconds — currently fine-tuning, plugging in the missing pieces, waiting for the dataset to have a true distribution before running real traffic analysis on top. **COLLIDE** is shipped and parked — not touching it for a while. Research Assistant work at ASU College of Health Solutions is the day job.
 

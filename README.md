@@ -32,8 +32,6 @@
 
 <img src="https://img.shields.io/badge/computer%20vision-0d1117?style=flat&labelColor=0d1117&color=22d3ee" />
 &nbsp;
-<img src="https://img.shields.io/badge/LLM%20agents-0d1117?style=flat&labelColor=0d1117&color=c4b5fd" />
-&nbsp;
 <img src="https://img.shields.io/badge/applied%20ML-0d1117?style=flat&labelColor=0d1117&color=fda4af" />
 
 <br/>
@@ -225,16 +223,6 @@ A RAG tutor that knows when to shut up. Retrieves only from your real Canvas doc
 
 <br/>
 
-### `'25` &nbsp; Hospital Unsupervised Learning &nbsp; <img src="https://img.shields.io/badge/clustering-fda4af?style=flat-square&labelColor=0d1117" />
-
-Pattern discovery on hospital records. Finding structure when you don't yet know what the labels should be.
-
-`Jupyter` &nbsp;·&nbsp; `scikit-learn`
-
-[**Read more →**](https://github.com/Suhxs-Reddy/DShospitalproject)
-
-<br/>
-
 ### `'24` &nbsp; Walmart Demand Forecast &nbsp; <img src="https://img.shields.io/badge/time--series-fda4af?style=flat-square&labelColor=0d1117" />
 
 Store-level weekly demand for 45 stores. Lagged/rolling features, holiday flags, chronological splits. The boring forecasting that keeps shelves stocked.
@@ -249,9 +237,9 @@ Store-level weekly demand for 45 stores. Lagged/rolling features, holiday flags,
 
 ## <sub><code>04.</code></sub> &nbsp;Currently
 
-**Reading.** &nbsp; Recently finished *Why Machines Learn* (Anil Ananthaswamy) and Liu Cixin's **Remembrance of Earth's Past** trilogy. Currently on *Absolute Martian Manhunter* (Deniz Camp / Javier Rodríguez) — through #10; #11 (April 22) next.
+**Reading.** &nbsp; Recently finished Liu Cixin's trilogy — *The Three-Body Problem*, *The Dark Forest*, *Death's End*. Currently reading *Why Machines Learn* (Anil Ananthaswamy) and *Absolute Martian Manhunter* (Deniz Camp / Javier Rodríguez) — through #10, #11 (April 22) next. On deck: *Darwin's Radio* (Greg Bear), *Annihilation* (Jeff VanderMeer).
 
-**Building.** &nbsp; **CATI** is live on HuggingFace Spaces and collecting from 90 cameras every 60 seconds — currently fine-tuning, plugging in the missing pieces, waiting for the dataset to have a true distribution before running real traffic analysis on top. **COLLIDE** is shipped and parked — not touching it for a while. Research Assistant work at ASU College of Health Solutions is the day job.
+**Building.** &nbsp; **CATI** is live on HuggingFace Spaces and collecting from 90 cameras every 60 seconds — currently fine-tuning, plugging in the missing pieces, waiting for the dataset to have a true distribution before running real traffic analysis on top. **COLLIDE** is shipped and parked — not touching it for a while. Research Success Data Assistant work at ASU College of Health Solutions is the day job.
 
 **Thinking about.** &nbsp; The fact that 90% of useful ML signals are public datasets nobody bothered to wire up. The next CATI-shaped project. How to make agents that *fail* gracefully instead of hallucinating confidently.
 
@@ -261,15 +249,11 @@ Store-level weekly demand for 45 stores. Lagged/rolling features, holiday flags,
 
 ## <sub><code>05.</code></sub> &nbsp;Stack
 
-**ML / Data.** &nbsp; Python · PyTorch · scikit-learn · Pandas · NumPy · DuckDB · Parquet
+**ML / Data.** &nbsp; Python · PyTorch · scikit-learn · Pandas · NumPy · DuckDB · Parquet · HuggingFace · YOLO
 
-**Backend.** &nbsp; FastAPI · Docker · AWS (S3, Athena) · MySQL · MongoDB · APScheduler
+**Storage.** &nbsp; SQL · MongoDB · AWS (S3, Athena)
 
-**Frontend.** &nbsp; TypeScript · React · Vite · Tailwind · Leaflet · Recharts
-
-**AI.** &nbsp; Anthropic Claude · LangGraph · LangChain · HuggingFace · Llama · YOLO
-
-**Observability.** &nbsp; Grafana · Tableau · structured logging
+**Visualization.** &nbsp; Tableau
 
 <br/>
 <br/>
@@ -277,17 +261,15 @@ Store-level weekly demand for 45 stores. Lagged/rolling features, holiday flags,
 
 ## <sub><code>06.</code></sub> &nbsp;The path here
 
-**`2026 →`** &nbsp; **Research Assistant** — ASU College of Health Solutions
-
-**`2026`** &nbsp; **ASU Energy Hackathon** — COLLIDE, solo pipeline build
+**`2026 →`** &nbsp; **Research Success Data Assistant** — ASU College of Health Solutions
 
 **`2025 → 27`** &nbsp; **MS Data Science** — Arizona State University
 
-**`2025`** &nbsp; **Data Science Intern** — GlobalLogic · Auth/RBAC platform analytics (Grafana, Athena, S3)
+**`2025`** &nbsp; **Data Science Intern** — GlobalLogic
 
-**`2024`** &nbsp; **SWE Intern** — GlobalLogic · GenAI platform backend (FastAPI, Docker, async S3 audit)
+**`2024`** &nbsp; **SWE Intern** — GlobalLogic
 
-**`2021 → 25`** &nbsp; **B.Tech Computer Science** (Big Data minor) — MIT Manipal
+**`2021 → 25`** &nbsp; **B.Tech Computer Science** — MIT Manipal
 
 <br/>
 <br/>

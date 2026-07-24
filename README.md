@@ -65,7 +65,7 @@ A traffic detector that adapts to weather, time, camera, and air quality in real
 <table><tr>
 <td align="center"><h3>90</h3><sub>live LTA cameras</sub></td>
 <td align="center"><h3 style="color:#22d3ee">1.4%</h3><sub>parameter overhead</sub></td>
-<td align="center"><h3>80K+</h3><sub>records on HF Spaces</sub></td>
+<td align="center"><h3>190K+</h3><sub>detection records on HF</sub></td>
 <td align="center"><h3>2018</h3><sub>FiLM, applied here first</sub></td>
 </tr></table>
 
@@ -118,7 +118,7 @@ flowchart LR
     H --> OUT[vehicles · plates · tracks]
 ```
 
-The system is live on HuggingFace Spaces, polling all 90 cameras every 60 seconds. 80,000+ records and growing. Dataset publishing to Kaggle for open traffic research.
+The system is live on HuggingFace Spaces, polling all 90 cameras every 90 seconds. 190,000+ detection records collected across 70+ days (April–June 2026). Currently running a Grounding DINO auto-labelling pass on the raw LTA image archive to replace the COCO-inherited class taxonomy with a 10-class Singapore-specific one — container trucks near Tuas port were being miscounted as generic trucks, which breaks road load estimates on MCE, AYE, and PIE.
 
 </details>
 
@@ -239,7 +239,7 @@ Store-level weekly demand for 45 stores. Lagged/rolling features, holiday flags,
 
 **Reading.** &nbsp; Recently finished Liu Cixin's trilogy — *The Three-Body Problem*, *The Dark Forest*, *Death's End*. Currently reading *Why Machines Learn* (Anil Ananthaswamy) and *Absolute Martian Manhunter* (Deniz Camp / Javier Rodríguez) — through #10, #11 (April 22) next. On deck: *Darwin's Radio* (Greg Bear), *Annihilation* (Jeff VanderMeer).
 
-**Building.** &nbsp; **CATI** is live on HuggingFace Spaces and collecting from 90 cameras every 60 seconds — currently fine-tuning, plugging in the missing pieces, waiting for the dataset to have a true distribution before running real traffic analysis on top. **COLLIDE** is shipped and parked — not touching it for a while. Research Success Data Assistant work at ASU College of Health Solutions is the day job.
+**Building.** &nbsp; **CATI** has 190k+ detection records across 70 days of live collection. Next step is a Singapore-specific 10-class vehicle taxonomy — the COCO-inherited one conflates container trucks, prime movers, and tippers into a single "truck" label, which materially breaks road load estimates near the port. Running Grounding DINO auto-labelling on the raw image archive, then human review, then retrain. **COLLIDE** is shipped and parked. Research Assistant at ASU College of Health Solutions is the day job.
 
 **Thinking about.** &nbsp; The fact that 90% of useful ML signals are public datasets nobody bothered to wire up. The next CATI-shaped project. How to make agents that *fail* gracefully instead of hallucinating confidently.
 

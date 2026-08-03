@@ -65,22 +65,22 @@ CATI feeds the model what it's missing — live weather, PM2.5, time, camera ide
 
 ### [`'26` &nbsp; COLLIDE](https://github.com/Suhxs-Reddy/EnergyHackathon) &nbsp; <img src="https://img.shields.io/badge/LLM%20agent-c4b5fd?style=flat-square&labelColor=0d1117" /> &nbsp; <img src="https://img.shields.io/badge/energy-fb923c?style=flat-square&labelColor=0d1117" />
 
-<sub>AI siting for gigawatt data centers · ASU Energy Hackathon 2026 · solo build</sub>
+<sub>AI siting for BTM data center gas plants · ASU Energy Hackathon 2026 · group project · data architecture & pipeline</sub>
 
-Every AI hyperscaler needs 100+ megawatts, around the clock. Connecting to the US grid takes **3 to 7 years**. So they build their own gas plants — and picking *where* is a three-body problem that breaks every existing tool, because land, gas, and power are not the same kind of data and can't be scored the same way.
+Every AI hyperscaler needs 100+ megawatts, around the clock. Connecting to the US grid takes **3 to 7 years**. So they build their own gas plants — and picking *where* is a three-body problem that breaks every existing tool, because **land, gas, and power are fundamentally different kinds of data**.
 
-Land viability is a **static multi-constraint problem** — parcel attributes, zoning, fiber, water, flood risk. A **Random Forest** handles feature interactions and explains each score via SHAP: *"site A ranks 47th because highway access (28%) and substation proximity (24%) dominate, but wildfire risk drags it."* Gas supply is a **spatial density problem** — 50 years of PHMSA pipeline failure records at exact coordinates, severity-weighted. A **GPU-accelerated KDE** estimates incident probability per location across 100k points in seconds. Power economics is a **temporal regime problem** — LMP swings ±$30/MWh intra-day across market regimes that aren't labeled. A **Moirai foundation model** handles 72-hour forecasting, a **GMM** discovers the three market states (normal / stress-scarcity / wind-curtailment), and a **Random Forest** predicts spread durability conditioned on the current regime.
+Land is a **static multi-constraint problem**: parcel attributes, zoning, fiber routes, water, FEMA flood zones — a **Random Forest** handles feature interactions and explains each score through SHAP. Gas supply is a **spatial incident density problem**: 50 years of PHMSA pipeline failure records at exact coordinates, severity-weighted across 100k+ points — **GPU-accelerated Gaussian KDE** produces a continuous risk surface in seconds. Power economics is a **temporal regime problem**: LMP swings ±$30/MWh intra-day through market states nobody labeled — a **Moirai foundation model** forecasts 72 hours ahead, a **GMM** discovers the three regimes (normal / stress-scarcity / wind-curtailment), and a **Random Forest** predicts spread durability for each. On top of that, live zoning news and pipeline safety reports — pulled via Tavily and reasoned over by Claude Haiku — nudge land and gas scores in real time.
 
-**TOPSIS** combines the three axes (30/35/35 by default, user-adjustable). **10,000 Monte Carlo simulations** give P10/P50/P90 NPV over 20 years. A **LangGraph agent on Claude** sits on top, reasoning across the full scorecard — *"What if gas spikes 40%?"* re-runs the analysis live against ERCOT/CAISO feeds. What consulting firms charge six figures and take months to deliver.
+The data pipeline wires **13 live sources across 10 public APIs** (EIA, ERCOT/CAISO, PHMSA, BLM, FCC, USGS, FEMA, NOAA, GridStatus, Tavily) through a DuckDB lake with Pandera schema validation, SHA-256 tamper-evident manifests, and row-level lineage. **TOPSIS** composites the three scores. **10,000 Monte Carlo simulations** give P10/P50/P90 NPV over 20 years. A **7-node LangGraph agent** answers what-ifs in plain English against live feeds. Only team at the hackathon to deliver all three sub-problems end to end.
 
 <table><tr>
-<td align="center"><h3>50–500</h3><sub>MW per site</sub></td>
-<td align="center"><h3>10</h3><sub>live public data sources</sub></td>
+<td align="center"><h3>13</h3><sub>live data sources</sub></td>
+<td align="center"><h3>3</h3><sub>sub-problems solved (only team)</sub></td>
 <td align="center"><h3>10K</h3><sub>Monte Carlo scenarios</sub></td>
 <td align="center"><h3>5 min</h3><sub>market data refresh</sub></td>
 </tr></table>
 
-`FastAPI` &nbsp;·&nbsp; `LangGraph` &nbsp;·&nbsp; `Claude` &nbsp;·&nbsp; `DuckDB` &nbsp;·&nbsp; `SHAP` &nbsp;·&nbsp; `Random Forest` &nbsp;·&nbsp; `KDE` &nbsp;·&nbsp; `GMM` &nbsp;·&nbsp; `Monte Carlo`
+`FastAPI` &nbsp;·&nbsp; `LangGraph` &nbsp;·&nbsp; `Claude` &nbsp;·&nbsp; `DuckDB` &nbsp;·&nbsp; `Pandera` &nbsp;·&nbsp; `SHAP` &nbsp;·&nbsp; `Random Forest` &nbsp;·&nbsp; `GPU KDE` &nbsp;·&nbsp; `GMM` &nbsp;·&nbsp; `Moirai` &nbsp;·&nbsp; `React` &nbsp;·&nbsp; `Leaflet`
 
 [**Repo →**](https://github.com/Suhxs-Reddy/EnergyHackathon)
 

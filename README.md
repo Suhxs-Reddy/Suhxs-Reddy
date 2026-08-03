@@ -1,17 +1,8 @@
 <!--
   Suhas Reddy · GitHub Profile README
-  Design language:
-    · primary accent: #64ffda (mint green) — section numbers, project years, primary links
-    · category accents (lighter Tailwind tones for dark-mode readability):
-        - vision  → #22d3ee (cyan)
-        - agents  → #c4b5fd (lavender)
-        - energy  → #fb923c (warm orange)
-        - data    → #fda4af (soft coral)
-    · numbered section prefixes — primary structural motif
-    · year-prefixed project headers — secondary motif
-    · left-aligned, no centered body content
-    · whitespace as primary structural element
-    · dynamic elements: typing intro · contribution snake
+  · primary accent: #64ffda (mint green)
+  · vision → #22d3ee · agents → #c4b5fd · energy → #fb923c · data → #fda4af
+  · numbered sections · year-prefixed projects · left-aligned · whitespace as structure
 -->
 
 <br/>
@@ -29,13 +20,6 @@
 [sdonthi4@asu.edu](mailto:sdonthi4@asu.edu) &nbsp;·&nbsp; [LinkedIn](https://linkedin.com/in/suhas-reddy-msds/) &nbsp;·&nbsp; [GitHub](https://github.com/Suhxs-Reddy)
 
 <br/>
-
-<img src="https://img.shields.io/badge/computer%20vision-0d1117?style=flat&labelColor=0d1117&color=22d3ee" />
-&nbsp;
-<img src="https://img.shields.io/badge/applied%20ML-0d1117?style=flat&labelColor=0d1117&color=fda4af" />
-
-<br/>
-<br/>
 <br/>
 
 ## <sub><code>01.</code></sub> &nbsp;About
@@ -44,192 +28,67 @@ The data is always dirtier than you think. The deployment is always weirder than
 
 I work at the seam between AI and the world it has to live in — where 90 traffic cameras include eleven 320×240 relics from the early 2000s, where pipeline incident data from 1986 changes where you'd put a gigawatt plant in 2026, where the privacy policy nobody reads is also the one selling your location.
 
-The fun part isn't tuning the model. **It's noticing what the model can't see.**
+**The fun part isn't tuning the model. It's noticing what the model can't see.**
 
 <br/>
 <br/>
-<br/>
 
-## <sub><code>02.</code></sub> &nbsp;Featured work
+## <sub><code>02.</code></sub> &nbsp;Work
 
 <br/>
 
 <img src="https://capsule-render.vercel.app/api?type=transparent&color=22d3ee&height=2&fontColor=22d3ee&text=." width="100%" />
 
-### `'26` &nbsp; CATI &nbsp; <img src="https://img.shields.io/badge/computer%20vision-22d3ee?style=flat-square&labelColor=0d1117" />
+### [`'26` &nbsp; CATI](https://github.com/Suhxs-Reddy/sg-smart-city-analytics) &nbsp; <img src="https://img.shields.io/badge/computer%20vision-22d3ee?style=flat-square&labelColor=0d1117" /> &nbsp; <img src="https://img.shields.io/badge/live-22d3ee?style=flat-square&labelColor=0d1117" />
 
-<sub>Context-Aware Traffic Intelligence · Singapore · solo build · live</sub>
+<sub>Context-Aware Traffic Intelligence · Singapore · solo build</sub>
 
-A traffic detector that adapts to weather, time, camera, and air quality in real time. **FiLM** layers ([Perez et al., 2018](https://arxiv.org/abs/1709.07871)) modulate YOLOv11's backbone — one model for all 90 of Singapore's LTA cameras, instead of 90 separate ones. About 130K extra parameters on 9.4M. Live on HuggingFace Spaces, collecting toward a Kaggle dataset publication.
+Singapore runs 90 expressway cameras in rain, haze, and 4am dark — all piped through the same generic detector. CATI injects **FiLM layers** ([Perez et al., 2018](https://arxiv.org/abs/1709.07871)) into YOLOv11's backbone so the model re-wires itself at inference time based on live weather, PM2.5, hour, and camera ID. One model for all 90 cameras. 130K extra parameters on 9.4M.
 
 <table><tr>
 <td align="center"><h3>90</h3><sub>live LTA cameras</sub></td>
-<td align="center"><h3 style="color:#22d3ee">1.4%</h3><sub>parameter overhead</sub></td>
+<td align="center"><h3>1.4%</h3><sub>parameter overhead</sub></td>
 <td align="center"><h3>213K+</h3><sub>detection records on HF</sub></td>
-<td align="center"><h3>2018</h3><sub>FiLM, applied here first</sub></td>
+<td align="center"><h3>90s</h3><sub>inference interval</sub></td>
 </tr></table>
 
-`PyTorch` &nbsp;·&nbsp; `YOLOv11` &nbsp;·&nbsp; `FiLM` &nbsp;·&nbsp; `BoT-SORT` &nbsp;·&nbsp; `data.gov.sg` &nbsp;·&nbsp; `Docker` &nbsp;·&nbsp; `HuggingFace Spaces`
+`PyTorch` &nbsp;·&nbsp; `YOLOv11` &nbsp;·&nbsp; `FiLM` &nbsp;·&nbsp; `Grounding DINO` &nbsp;·&nbsp; `BoT-SORT` &nbsp;·&nbsp; `Docker` &nbsp;·&nbsp; `HuggingFace Spaces`
 
-[**Read the full story →**](https://github.com/Suhxs-Reddy/sg-smart-city-analytics)
-
-<details>
-<summary><sub>Inspiration & approach</sub></summary>
-
-<br/>
-
-Singapore runs ninety traffic cameras around the clock. Some are 1080p. Eleven are 320×240 hardware from the early 2000s. They look out over monsoon storms, midnight glare, peak-hour chaos, and the dead silence at 4am. And every single frame — every camera, every condition — gets piped through the same generic YOLO that treats them all identically. Which is exactly when vehicles get missed.
-
-I kept staring at this and thinking: **the model already has access to everything it needs to do better.** The camera knows which camera it is. The system has live weather. The clock is right there. The PM2.5 air-quality index is one public API call away. So why is a clear afternoon highway and a rain-soaked midnight feed processed the same way?
-
-The answer turned out to live in a 2018 paper — **FiLM** (*Feature-wise Linear Modulation*, Perez et al.). Tiny modules that take an external signal and use it to **scale and shift the network's internal features**. Three reasons it was the right tool:
-
-- **Identity at initialization.** γ=1, β=0 means day zero is exactly vanilla YOLO — the model only specializes where it helps loss. No regression risk.
-- **Tiny.** ~130K parameters on YOLO's 9.4M. A 1.4% overhead with negligible inference cost.
-- **No retraining.** One model, with a dial for context. Not ninety separate models. Not an ensemble.
-
-</details>
-
-<details>
-<summary><sub>The full story · how it works · the math</sub></summary>
-
-<br/>
-
-Picture the vision network as layers of pattern detectors stacked on top of each other. With FiLM, I dial each detector's volume up or down based on the current weather, time, camera, and air quality. In monsoon rain, the detectors looking for crisp edges get turned down. The ones looking for blurry motion blobs get turned up. At 2am on Camera #47, the network behaves differently than at 2pm on Camera #12. The model figures out the dialing on its own — I just feed it the current state of the world.
-
-The FiLM transform itself is two affine parameters per channel:
-
-```
-feature_out = γ(context) ⊙ feature_in + β(context)
-```
-
-A tiny encoder (MLP) processes weather code, temperature, sin/cos hour-of-day, a 16-dim camera ID embedding (learned per camera), resolution, and PM2.5, then predicts γ and β for the P3/P4/P5 stages of YOLOv11's backbone. Each of the 90 cameras gets its own learned embedding that captures viewpoint and quirks.
-
-```mermaid
-%%{init: {'theme':'dark', 'themeVariables': {'primaryColor':'#22d3ee','primaryBorderColor':'#22d3ee','lineColor':'#64ffda','primaryTextColor':'#e5e7eb','background':'#0d1117'}}}%%
-flowchart LR
-    CTX[live context<br/>weather · time · camera · PM2.5] --> ENC[MLP encoder<br/>γ, β]
-    IMG[camera frame] --> BB[YOLOv11 backbone]
-    BB --> F1[FiLM P3]
-    BB --> F2[FiLM P4]
-    BB --> F3[FiLM P5]
-    ENC --> F1 & F2 & F3
-    F1 & F2 & F3 --> H[detection head]
-    H --> OUT[vehicles · plates · tracks]
-```
-
-The system is live on HuggingFace Spaces, polling all 90 cameras every 90 seconds. 213,000+ detection records collected since April 2026, still growing. Phase 3 retraining is underway — Grounding DINO auto-labelling notebooks are done and running, replacing the COCO-inherited class scheme with a 10-class Singapore-specific taxonomy. Container trucks near Tuas port were being counted as generic trucks; taxis (distinct livery) folded into car; scooters invisible. New weights ship once training completes.
-
-</details>
+[**Repo →**](https://github.com/Suhxs-Reddy/sg-smart-city-analytics) &nbsp;·&nbsp; [**Live demo →**](https://huggingface.co/spaces/SuhxsReddy/SingaporeAnalytics) &nbsp;·&nbsp; [**Dataset →**](https://huggingface.co/datasets/SuhxsReddy/cati-singapore-dataset) &nbsp;·&nbsp; [**Model →**](https://huggingface.co/SuhxsReddy/cati-singapore)
 
 <br/>
 <br/>
 
 <img src="https://capsule-render.vercel.app/api?type=transparent&color=fb923c&height=2&fontColor=fb923c&text=." width="100%" />
 
-### `'26` &nbsp; COLLIDE &nbsp; <img src="https://img.shields.io/badge/LLM%20agent-c4b5fd?style=flat-square&labelColor=0d1117" /> &nbsp; <img src="https://img.shields.io/badge/energy-fb923c?style=flat-square&labelColor=0d1117" />
+### [`'26` &nbsp; COLLIDE](https://github.com/Suhxs-Reddy/EnergyHackathon) &nbsp; <img src="https://img.shields.io/badge/LLM%20agent-c4b5fd?style=flat-square&labelColor=0d1117" /> &nbsp; <img src="https://img.shields.io/badge/energy-fb923c?style=flat-square&labelColor=0d1117" />
 
 <sub>AI siting for gigawatt data centers · ASU Energy Hackathon 2026 · solo build</sub>
 
-Where do you build a 100 MW behind-the-meter gas plant? Three ML models — Random Forest, GPU Gaussian KDE, and GMM — score land, gas, and power independently, then argue through **TOPSIS**. A 7-node **LangGraph** agent on top of Claude answers what-ifs in plain English. Monte Carlo gives P10/P50/P90 over 20 years. Ten public data sources, refreshing every five minutes. What takes consulting firms months happens in seconds.
+Where do you build a 100 MW behind-the-meter gas plant when connecting to the grid takes 3–7 years? Three ML models score land, gas pipeline risk, and power market dynamics independently, then TOPSIS arbitrates. A 7-node LangGraph agent on top of Claude answers what-ifs — *"What if gas spikes 40%?"* — against live ERCOT/CAISO feeds. Monte Carlo gives P10/P50/P90 over 20 years.
 
 <table><tr>
 <td align="center"><h3>50–500</h3><sub>MW per site</sub></td>
-<td align="center"><h3 style="color:#fb923c">3 → 7</h3><sub>year grid wait, dodged</sub></td>
+<td align="center"><h3>10</h3><sub>live public data sources</sub></td>
 <td align="center"><h3>10K</h3><sub>Monte Carlo scenarios</sub></td>
-<td align="center"><h3>5 min</h3><sub>live market refresh</sub></td>
+<td align="center"><h3>5 min</h3><sub>market data refresh</sub></td>
 </tr></table>
 
-`FastAPI` &nbsp;·&nbsp; `LangGraph` &nbsp;·&nbsp; `Claude` &nbsp;·&nbsp; `DuckDB` &nbsp;·&nbsp; `Leaflet` &nbsp;·&nbsp; `SHAP` &nbsp;·&nbsp; `Random Forest` &nbsp;·&nbsp; `KDE` &nbsp;·&nbsp; `GMM` &nbsp;·&nbsp; `Monte Carlo`
+`FastAPI` &nbsp;·&nbsp; `LangGraph` &nbsp;·&nbsp; `Claude` &nbsp;·&nbsp; `DuckDB` &nbsp;·&nbsp; `SHAP` &nbsp;·&nbsp; `Random Forest` &nbsp;·&nbsp; `KDE` &nbsp;·&nbsp; `GMM` &nbsp;·&nbsp; `Monte Carlo`
 
-[**Read the full story →**](https://github.com/Suhxs-Reddy/EnergyHackathon)
-
-<details>
-<summary><sub>Inspiration & approach</sub></summary>
-
-<br/>
-
-Every AI hyperscaler needs power — gigawatts of it, twenty-four seven. Connecting a new data center to the grid takes three to seven years. Your competitors aren't waiting. So you build your own natural-gas plant on-site, behind the meter. The catch is picking *where*, and the catch is brutal: it's a three-body problem. Land has its own constraints (zoning, fiber, water, flood). Gas supply has its own (pipeline reliability, hub distance, curtailment risk). Electricity markets have their own (LMP spreads, price regimes, scarcity events). Real consultants charge six figures and take months because they evaluate these axes one at a time.
-
-I wanted the three to **argue with each other in real time** instead of sequentially. A great parcel with bad gas economics shouldn't beat a decent parcel with stellar gas economics, but spreadsheets can't tell you that. So I gave each axis its own ML model — picked deliberately, not by default:
-
-- **Land → Random Forest.** Parcel features are tabular and noisy. RFs handle that gracefully and give per-site SHAP attributions, so I can explain *why* a site scored where it did.
-- **Gas → GPU Gaussian KDE.** Pipeline incidents cluster spatially. KDE reads that distribution out cleanly without needing labels, and PHMSA's incident database is public and severity-tagged.
-- **Power → Random Forest + GMM.** The market itself has distinct regimes — normal, wind-curtailment, scarcity. A 3-component GMM finds them in unlabeled ERCOT data. The RF then predicts spread durability conditioned on the regime.
-- **Composite → TOPSIS.** A multi-criteria decision method from 1981 that's still the cleanest way to combine apples and oranges with user-adjustable weights.
-- **Agent → 7-node LangGraph + Claude.** Five intents — *stress-test, compare, timing, explanation, config* — let a human drive the analysis without writing code. Routes through `parse_intent` → tool node → `synthesize` and streams back as SSE tokens.
-
-</details>
-
-<details>
-<summary><sub>The full story · how it works · agent intents</sub></summary>
-
-<br/>
-
-Click any coordinate across Texas, New Mexico, or Arizona — ERCOT or WECC market — and the system pulls live market data, looks up the parcel, scores all three axes, blends them through TOPSIS, and runs **10,000 Monte Carlo simulations** to give you P10/P50/P90 cost ranges over the next 20 years. A LangGraph agent on top of Claude reads all of that — plus 72-hour LMP forecasts from the **Moirai foundation model** — and answers your follow-up questions in plain English. *"What if gas prices spike 30%?"* re-runs the analysis on live ERCOT and CAISO feeds.
-
-Wired to ten public data sources — PHMSA pipeline incidents, ERCOT and CAISO LMP, EIA gas prices, NOAA weather, **PERM-A** federal land ownership, FCC fiber maps, FEMA flood zones, GridStatus, and live Tavily web enrichment — refreshing every five minutes through APScheduler background jobs. Pandera schema validation gates every row; failures get quarantined, never silently dropped.
-
-| Intent | Tools called | Trigger |
-|---|---|---|
-| `stress_test` | `evaluate_site`, `run_monte_carlo` | *"What if gas spikes 40%?"* |
-| `compare` | `compare_sites`, `evaluate_site` | *"Compare my pinned sites"* |
-| `timing` | `get_lmp_forecast`, `get_news_digest` | *"When should I build?"* |
-| `explanation` | SHAP from active scorecard | *"Why is land score low?"* |
-| `config` | extract config JSON (Sonnet) | *"Set gas weight to 50%"* |
-
-```mermaid
-%%{init: {'theme':'dark', 'themeVariables': {'primaryColor':'#fb923c','primaryBorderColor':'#fb923c','lineColor':'#64ffda','primaryTextColor':'#e5e7eb','background':'#0d1117'}}}%%
-flowchart LR
-    SRC[10 public sources<br/>PHMSA · ERCOT · CAISO · EIA · GridStatus<br/>NOAA · PERM-A · FCC · FEMA · Tavily] --> ETL[DuckDB · Parquet · Pandera]
-    ETL --> M1[Land<br/>Random Forest]
-    ETL --> M2[Gas<br/>GPU KDE]
-    ETL --> M3[Power<br/>RF + GMM]
-    M1 & M2 & M3 --> TOP[TOPSIS]
-    TOP --> NPV[Monte Carlo · 10K]
-    NPV --> AGT[LangGraph · Claude]
-    AGT --> UI[map · scorecard]
-```
-
-Background jobs: GridStatus + Waha + regime every 5 min, Tavily news every 30 min, Moirai forecast every hour. Live ERCOT LMP also pushes via WebSocket at `/ws/lmp/stream`.
-
-</details>
+[**Repo →**](https://github.com/Suhxs-Reddy/EnergyHackathon)
 
 <br/>
 <br/>
 <br/>
 
-## <sub><code>03.</code></sub> &nbsp;Other things I've built
+## <sub><code>03.</code></sub> &nbsp;Also built
 
 <br/>
 
-### `'25` &nbsp; DataGuard &nbsp; <img src="https://img.shields.io/badge/Chrome%20extension-c4b5fd?style=flat-square&labelColor=0d1117" />
+**[DataGuard](https://github.com/Suhxs-Reddy/KiroHackathon)** &nbsp; `'25` &nbsp; — &nbsp; Chrome extension that lets Llama 3.1 read the privacy policy for you. Breach-checks the domain and generates one-click GDPR/CCPA opt-outs.
 
-I let an LLM read the privacy policy for you. Llama 3.1 parses any site's policy, breach-checks the domain on Have I Been Pwned, and generates one-click GDPR/CCPA opt-outs with pre-filled emails and follow-up calendar reminders.
-
-`TypeScript` &nbsp;·&nbsp; `Chrome MV3` &nbsp;·&nbsp; `Llama 3.1`
-
-[**Read more →**](https://github.com/Suhxs-Reddy/KiroHackathon)
-
-<br/>
-
-### `'25` &nbsp; AI Study Buddy &nbsp; <img src="https://img.shields.io/badge/RAG-c4b5fd?style=flat-square&labelColor=0d1117" />
-
-A RAG tutor that knows when to shut up. Retrieves only from your real Canvas docs, with a low-relevance threshold that flags out-of-syllabus questions instead of inventing answers.
-
-`React` &nbsp;·&nbsp; `FastAPI` &nbsp;·&nbsp; `Claude` &nbsp;·&nbsp; `Supermemory`
-
-[**Read more →**](https://github.com/Suhxs-Reddy/CBC-Hackathon)
-
-<br/>
-
-### `'24` &nbsp; Walmart Demand Forecast &nbsp; <img src="https://img.shields.io/badge/time--series-fda4af?style=flat-square&labelColor=0d1117" />
-
-Store-level weekly demand for 45 stores. Lagged/rolling features, holiday flags, chronological splits. The boring forecasting that keeps shelves stocked.
-
-`Python` &nbsp;·&nbsp; `pandas` &nbsp;·&nbsp; `time-series`
-
-[**Read more →**](https://github.com/Suhxs-Reddy/prediction)
+**[AI Study Buddy](https://github.com/Suhxs-Reddy/CBC-Hackathon)** &nbsp; `'25` &nbsp; — &nbsp; RAG tutor that retrieves only from your real Canvas docs and flags out-of-syllabus questions instead of hallucinating answers.
 
 <br/>
 <br/>
@@ -237,11 +96,9 @@ Store-level weekly demand for 45 stores. Lagged/rolling features, holiday flags,
 
 ## <sub><code>04.</code></sub> &nbsp;Currently
 
-**Reading.** &nbsp; Recently finished Liu Cixin's trilogy — *The Three-Body Problem*, *The Dark Forest*, *Death's End*. Currently reading *Why Machines Learn* (Anil Ananthaswamy) and *Absolute Martian Manhunter* (Deniz Camp / Javier Rodríguez) — through #10, #11 (April 22) next. On deck: *Darwin's Radio* (Greg Bear), *Annihilation* (Jeff VanderMeer).
+**CATI Phase 3** — retraining on a 10-class Singapore vehicle taxonomy (car, motorcycle, scooter, bus, van, lorry, container truck, prime mover, tipper truck, taxi). The Phase 2 model was trained on COCO pseudo-labels; this fixes it. GDino auto-labelling pipeline is built, running now.
 
-**Building.** &nbsp; **CATI** is in Phase 3 retraining. 213k+ records in the HF dataset and growing — the live inference loop is still running. The problem being fixed: the Phase 2 model was trained on COCO pseudo-labels, so "container truck", "prime mover", and "tipper" were all "truck", and taxis were "car". Grounding DINO auto-labelling pipeline is built and ready to run; next is human review, then retrain on the corrected 10-class Singapore taxonomy. **COLLIDE** is shipped and parked. Research Assistant at ASU College of Health Solutions is the day job.
-
-**Thinking about.** &nbsp; The fact that 90% of useful ML signals are public datasets nobody bothered to wire up. The next CATI-shaped project. How to make agents that *fail* gracefully instead of hallucinating confidently.
+Research Success Data Assistant at ASU College of Health Solutions is the day job.
 
 <br/>
 <br/>
@@ -249,37 +106,30 @@ Store-level weekly demand for 45 stores. Lagged/rolling features, holiday flags,
 
 ## <sub><code>05.</code></sub> &nbsp;Stack
 
-**ML / Data.** &nbsp; Python · PyTorch · scikit-learn · Pandas · NumPy · DuckDB · Parquet · HuggingFace · YOLO
-
-**Storage.** &nbsp; SQL · MongoDB · AWS (S3, Athena)
-
-**Visualization.** &nbsp; Tableau
+`Python` &nbsp;·&nbsp; `PyTorch` &nbsp;·&nbsp; `scikit-learn` &nbsp;·&nbsp; `HuggingFace` &nbsp;·&nbsp; `YOLO` &nbsp;·&nbsp; `LangGraph` &nbsp;·&nbsp; `FastAPI` &nbsp;·&nbsp; `DuckDB` &nbsp;·&nbsp; `Parquet` &nbsp;·&nbsp; `Pandas` &nbsp;·&nbsp; `SQL` &nbsp;·&nbsp; `MongoDB` &nbsp;·&nbsp; `AWS`
 
 <br/>
 <br/>
 <br/>
 
-## <sub><code>06.</code></sub> &nbsp;The path here
+## <sub><code>06.</code></sub> &nbsp;Background
 
-**`2026 →`** &nbsp; **Research Success Data Assistant** — ASU College of Health Solutions
+**`2026 →`** &nbsp; Research Success Data Assistant — ASU College of Health Solutions
 
-**`2025 → 27`** &nbsp; **MS Data Science** — Arizona State University
+**`2025 → 27`** &nbsp; MS Data Science — Arizona State University
 
-**`2025`** &nbsp; **Data Science Intern** — GlobalLogic
+**`2025`** &nbsp; Data Science Intern — GlobalLogic
 
-**`2024`** &nbsp; **SWE Intern** — GlobalLogic
+**`2024`** &nbsp; SWE Intern — GlobalLogic
 
-**`2021 → 25`** &nbsp; **B.Tech Computer Science** — MIT Manipal
-
-<br/>
-<br/>
-<br/>
-
-## <sub><code>07.</code></sub> &nbsp;Get in touch
-
-The fastest way is [**email**](mailto:sdonthi4@asu.edu). I'm always happy to talk applied AI, computer vision, energy infrastructure, or any project where the messy real world is part of the problem.
+**`2021 → 25`** &nbsp; B.Tech Computer Science — MIT Manipal
 
 <br/>
+<br/>
+<br/>
+
+[sdonthi4@asu.edu](mailto:sdonthi4@asu.edu) &nbsp;·&nbsp; [LinkedIn](https://linkedin.com/in/suhas-reddy-msds/)
+
 <br/>
 <br/>
 
@@ -287,8 +137,3 @@ The fastest way is [**email**](mailto:sdonthi4@asu.edu). I'm always happy to tal
   <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/Suhxs-Reddy/Suhxs-Reddy/output/github-contribution-grid-snake-dark.svg" />
   <img alt="contribution snake" src="https://raw.githubusercontent.com/Suhxs-Reddy/Suhxs-Reddy/output/github-contribution-grid-snake.svg" width="100%" />
 </picture>
-
-<br/>
-<br/>
-
-

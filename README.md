@@ -49,19 +49,6 @@ This is where **[Feature-wise Linear Modulation (FiLM)](https://arxiv.org/abs/17
 
 To protect YOLO's pretrained weights, CATI uses **learned adaptive gating**: `α · FiLM(feature) + (1−α) · feature`. At initialisation (γ=1, β=0, α=0), **the network behaves identically to vanilla YOLO**. As training progresses, the model selectively activates modulation only where context demonstrably reduces detection loss. Because FiLM operates channel-wise on intermediate tensors rather than stacking heavy convolutional layers, the entire conditioning engine adds just **130K parameters onto a 9.4M backbone — 1.4% overhead** with negligible inference latency cost.
 
-**Build journey:**
-
-`1. Collect` &nbsp; LTA API → raw JPEGs + NEA weather/PM2.5 metadata, 90 cameras, partitioned by date and camera ID. Temporal split enforced from the start — no leakage.
-
-`2. Extract` &nbsp; YOLOv11s backbone run offline on raw images → P3/P4/P5 feature tensors cached to disk as FP16. Decouples the expensive vision forward pass from the training loop entirely.
-
-`3. Phase 1 — context module` &nbsp; Backbone frozen. ContextEncoder + FiLMGenerator + adaptive gates trained on cached features. γ=1, β=0, α=0 init — day one is vanilla YOLO. Model learns to modulate only where context reduces loss. → `cati_best.pt`
-
-`4. Phase 2 — end-to-end` &nbsp; Backbone unfrozen. Differential LR: 1e-4 on backbone (preserve pretrained features), 1e-3 on context modules. 6 training runs, best checkpoint `yolo_cati6`. → `cati_phase2_final.pt`
-
-`5. Deploy` &nbsp; Docker → HuggingFace Spaces (CPU). Streamlit dashboard + Folium map. Every 90s: fetch 90 feeds → conditioned inference → push one row per camera to public HF dataset. **213K+ records since April 2026.** Structured for downstream use: congestion modelling, peak-hour flow, road-load by vehicle class, multi-camera network analytics.
-
-`6. Phase 3 ↻` &nbsp; COCO pseudo-labels had the wrong classes — container trucks counted as "truck", taxis as "car". Grounding DINO zero-shot auto-labels 1,800 sampled frames with a 10-class SG taxonomy. Retrain Phase 2 head only (nc=10). Phase 1 weights reused — ContextEncoder has no class-specific parameters.
 
 <table><tr>
 <td align="center"><h3>90</h3><sub>live LTA cameras</sub></td>

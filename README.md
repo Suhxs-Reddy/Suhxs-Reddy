@@ -39,23 +39,25 @@ MS Data Science at ASU. I build ML systems that have to work in the real world �
 
 <sub>Context-Aware Traffic Intelligence · Singapore · solo build</sub>
 
-Solo end-to-end build, live in production. Standard detectors treat every frame identically — same weights at 3am in a monsoon as at noon on a clear highway. Singapore's LTA network has 90 fixed cameras at known locations with live weather, PM2.5, and timestamp available at inference time. CATI uses all of it. **[FiLM layers](https://arxiv.org/abs/1709.07871)** inject environmental metadata directly into YOLOv11's backbone at P3/P4/P5, re-conditioning feature maps per inference step. One model, 90 context-specific behaviours, 130K extra parameters on 9.4M.
+Solo end-to-end build, live in production.
 
-Deployed on HuggingFace Spaces — every 90 seconds it fetches all 90 LTA camera feeds, runs conditioned inference, and appends per-camera vehicle counts, directional splits, weather state, and road assignment to a public dataset. **213K+ records collected since April 2026**, structured for downstream traffic analysis: congestion modelling, peak-hour flow patterns, road-load estimation by vehicle class, multi-camera network analytics. Data pipeline is temporally split — train/val/test partitioned by date, no leakage. Grounding DINO auto-labelling (Phase 3, in progress) replaces COCO pseudo-labels with a 10-class Singapore-specific taxonomy so vehicle class counts are actually correct.
+Singapore's LTA network is 90 fixed cameras at known positions on known roads. At every inference step the system already knows the camera ID, road, weather condition, PM2.5, and time of day. Standard YOLO ignores all of it — same weights for a clear noon highway and a rain-soaked 3am feed from a degraded 320×240 camera. That gap is what CATI closes.
 
-**How it was built:**
+The mechanism: a **ContextEncoder** (MLP) takes live weather, PM2.5, hour (sin/cos), camera embedding, and resolution → predicts **γ, β** → **[FiLM layers](https://arxiv.org/abs/1709.07871)** apply `feature = γ ⊙ feature + β` at P3/P4/P5 of YOLOv11's backbone. Adaptive gating (`α·FiLM + (1−α)·identity`, learned per context) means the model initialises identical to vanilla YOLO and only specialises where it reduces loss. 130K parameters on 9.4M.
 
-`1. Collect` &nbsp; LTA API → raw images + NEA weather/PM2.5 metadata, 90 cameras, structured by date and camera ID
+**Build journey:**
 
-`2. Extract` &nbsp; YOLOv11s backbone run offline → P3/P4/P5 feature tensors cached to disk (FP16), decoupled from training loop
+`1. Collect` &nbsp; LTA API → raw JPEGs + NEA weather/PM2.5 metadata, 90 cameras, partitioned by date and camera ID. Temporal split enforced from the start — no leakage.
 
-`3. Phase 1` &nbsp; Backbone frozen. Train ContextEncoder + FiLMGenerator + adaptive gates on cached features. γ=1, β=0 init — starts identical to vanilla YOLO, diverges only where context helps loss. `cati_best.pt`
+`2. Extract` &nbsp; YOLOv11s backbone run offline on raw images → P3/P4/P5 feature tensors cached to disk as FP16. Decouples the expensive vision forward pass from the training loop entirely.
 
-`4. Phase 2` &nbsp; Backbone unfrozen. Joint fine-tune of full model with lower LR on backbone, higher on context modules. 6 training runs, best checkpoint `yolo_cati6`. `cati_phase2_final.pt`
+`3. Phase 1 — context module` &nbsp; Backbone frozen. ContextEncoder + FiLMGenerator + adaptive gates trained on cached features. γ=1, β=0, α=0 init — day one is vanilla YOLO. Model learns to modulate only where context reduces loss. → `cati_best.pt`
 
-`5. Deploy` &nbsp; Docker → HuggingFace Spaces (CPU). Live inference loop, Streamlit dashboard, Folium map, HF dataset push every sweep
+`4. Phase 2 — end-to-end` &nbsp; Backbone unfrozen. Differential LR: 1e-4 on backbone (preserve pretrained features), 1e-3 on context modules. 6 training runs, best checkpoint `yolo_cati6`. → `cati_phase2_final.pt`
 
-`6. Phase 3 ↻` &nbsp; Grounding DINO zero-shot auto-labels 1,800 sampled images with 10-class SG taxonomy. Human review on low-confidence detections. Retrain Phase 2 head with nc=10. Phase 1 weights reused — ContextEncoder is class-agnostic
+`5. Deploy` &nbsp; Docker → HuggingFace Spaces (CPU). Streamlit dashboard + Folium map. Every 90s: fetch 90 feeds → conditioned inference → push one row per camera to public HF dataset. **213K+ records since April 2026.** Structured for downstream use: congestion modelling, peak-hour flow, road-load by vehicle class, multi-camera network analytics.
+
+`6. Phase 3 ↻` &nbsp; COCO pseudo-labels had the wrong classes — container trucks counted as "truck", taxis as "car". Grounding DINO zero-shot auto-labels 1,800 sampled frames with a 10-class SG taxonomy. Retrain Phase 2 head only (nc=10). Phase 1 weights reused — ContextEncoder has no class-specific parameters.
 
 <table><tr>
 <td align="center"><h3>90</h3><sub>live LTA cameras</sub></td>

@@ -43,7 +43,9 @@ I work at the seam between AI and the world it has to live in — where 90 traff
 
 <sub>Context-Aware Traffic Intelligence · Singapore · solo build</sub>
 
-Singapore runs 90 expressway cameras in rain, haze, and 4am dark — all piped through the same generic detector. CATI injects **FiLM layers** ([Perez et al., 2018](https://arxiv.org/abs/1709.07871)) into YOLOv11's backbone so the model re-wires itself at inference time based on live weather, PM2.5, hour, and camera ID. One model for all 90 cameras. 130K extra parameters on 9.4M.
+Every standard detector treats every frame the same. It doesn't know it's 3am. It doesn't know it's raining. It doesn't know camera 47 on the CTE sees through a degraded 320×240 lens that drifts darker in the wet. **It's flying blind when it doesn't have to be.**
+
+CATI feeds the model what it's missing — live weather, PM2.5, time, camera identity — and uses **[FiLM layers](https://arxiv.org/abs/1709.07871)** to re-wire YOLOv11's backbone at every single inference step. The model that runs at 3am in a storm is not the same model that runs at noon on a clear highway. One set of weights. Ninety different behaviours. 130K extra parameters on 9.4M.
 
 <table><tr>
 <td align="center"><h3>90</h3><sub>live LTA cameras</sub></td>
@@ -65,7 +67,9 @@ Singapore runs 90 expressway cameras in rain, haze, and 4am dark — all piped t
 
 <sub>AI siting for gigawatt data centers · ASU Energy Hackathon 2026 · solo build</sub>
 
-Where do you build a 100 MW behind-the-meter gas plant when connecting to the grid takes 3–7 years? Three ML models score land, gas pipeline risk, and power market dynamics independently, then TOPSIS arbitrates. A 7-node LangGraph agent on top of Claude answers what-ifs — *"What if gas spikes 40%?"* — against live ERCOT/CAISO feeds. Monte Carlo gives P10/P50/P90 over 20 years.
+Every AI hyperscaler needs 100+ megawatts, around the clock. Connecting a new facility to the US power grid takes **3 to 7 years**. So they're building their own gas plants — and the question of *where* is a three-body problem that breaks spreadsheets: land, gas supply, and power markets are all pulling in different directions at once.
+
+COLLIDE runs all three simultaneously. Three ML models score each axis with live public data. TOPSIS arbitrates the trade-offs. Ten thousand Monte Carlo simulations give you P10/P50/P90 cost ranges over 20 years. And a LangGraph agent on top of Claude sits in the room with you — *"What if gas spikes 40%?"* re-runs the entire analysis in seconds. What consulting firms charge six figures and take months to deliver.
 
 <table><tr>
 <td align="center"><h3>50–500</h3><sub>MW per site</sub></td>

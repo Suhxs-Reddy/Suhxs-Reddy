@@ -39,7 +39,9 @@ MS Data Science at ASU. I build ML systems that have to work in the real world �
 
 <sub>Context-Aware Traffic Intelligence · Singapore · solo build</sub>
 
-Standard detectors treat every frame identically — same weights at 3am in a monsoon as at noon on a clear highway. Singapore's LTA network has 90 fixed cameras at known locations with live weather, PM2.5, and timestamp available at inference time. CATI uses all of it. **[FiLM layers](https://arxiv.org/abs/1709.07871)** inject environmental metadata directly into YOLOv11's backbone at P3/P4/P5, re-conditioning feature maps per inference step. One model, 90 context-specific behaviours, 130K extra parameters on 9.4M.
+Solo end-to-end build, live in production. Standard detectors treat every frame identically — same weights at 3am in a monsoon as at noon on a clear highway. Singapore's LTA network has 90 fixed cameras at known locations with live weather, PM2.5, and timestamp available at inference time. CATI uses all of it. **[FiLM layers](https://arxiv.org/abs/1709.07871)** inject environmental metadata directly into YOLOv11's backbone at P3/P4/P5, re-conditioning feature maps per inference step. One model, 90 context-specific behaviours, 130K extra parameters on 9.4M.
+
+Deployed on HuggingFace Spaces — every 90 seconds it fetches all 90 LTA camera feeds, runs conditioned inference, and appends per-camera vehicle counts, directional splits, weather state, and road assignment to a public dataset. **213K+ records collected since April 2026**, structured for downstream traffic analysis: congestion modelling, peak-hour flow patterns, road-load estimation by vehicle class, multi-camera network analytics. Data pipeline is temporally split — train/val/test partitioned by date, no leakage. Grounding DINO auto-labelling (Phase 3, in progress) replaces COCO pseudo-labels with a 10-class Singapore-specific taxonomy so vehicle class counts are actually correct.
 
 <table><tr>
 <td align="center"><h3>90</h3><sub>live LTA cameras</sub></td>

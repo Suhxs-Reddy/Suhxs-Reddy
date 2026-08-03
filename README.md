@@ -41,9 +41,9 @@ MS Data Science at ASU. I build ML systems that have to work in the real world �
 
 Solo end-to-end build, live in production.
 
-Singapore's LTA network is 90 fixed cameras at known positions on known roads. At every inference step the system already knows the camera ID, road, weather condition, PM2.5, and time of day. Standard YOLO ignores all of it — same weights for a clear noon highway and a rain-soaked 3am feed from a degraded 320×240 camera. That gap is what CATI closes.
+Singapore's LTA streams 90 live traffic feeds every 90 seconds, giving complete spatial coverage across an entire country's road network. It's a massive, real-time national asset sitting out in the open — but turning a raw, uncurated API into a structured, production-ready dataset requires serious data engineering. Unlike pre-cleaned benchmark datasets, these feeds operate under real-world conditions: degraded 320×240 resolutions, sudden tropical rain, 3am headlight glare, PM2.5 haze, and localised microclimates across the island. Processing an entire nation's traffic stream end-to-end means building both a pipeline and a model capable of handling continuous environmental variation.
 
-The mechanism: a **ContextEncoder** (MLP) takes live weather, PM2.5, hour (sin/cos), camera embedding, and resolution → predicts **γ, β** → **[FiLM layers](https://arxiv.org/abs/1709.07871)** apply `feature = γ ⊙ feature + β` at P3/P4/P5 of YOLOv11's backbone. Adaptive gating (`α·FiLM + (1−α)·identity`, learned per context) means the model initialises identical to vanilla YOLO and only specialises where it reduces loss. 130K parameters on 9.4M.
+Standard YOLO ignores all of it — same weights at 3am in a monsoon as at noon on a clear highway. At every inference step the system already knows the camera ID, road, weather condition, PM2.5, and time of day. CATI uses all of it. The mechanism: a **ContextEncoder** (MLP) takes live weather, PM2.5, hour (sin/cos), camera embedding, and resolution → predicts **γ, β** → **[FiLM layers](https://arxiv.org/abs/1709.07871)** apply `feature = γ ⊙ feature + β` at P3/P4/P5 of YOLOv11's backbone. Adaptive gating (`α·FiLM + (1−α)·identity`, learned per context) means the model initialises identical to vanilla YOLO and only specialises where it reduces loss. 130K parameters on 9.4M.
 
 **Build journey:**
 

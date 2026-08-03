@@ -67,9 +67,11 @@ CATI feeds the model what it's missing — live weather, PM2.5, time, camera ide
 
 <sub>AI siting for gigawatt data centers · ASU Energy Hackathon 2026 · solo build</sub>
 
-Every AI hyperscaler needs 100+ megawatts, around the clock. Connecting a new facility to the US power grid takes **3 to 7 years**. So they're building their own gas plants — and the question of *where* is a three-body problem that breaks spreadsheets: land, gas supply, and power markets are all pulling in different directions at once.
+Every AI hyperscaler needs 100+ megawatts, around the clock. Connecting to the US grid takes **3 to 7 years**. So they build their own gas plants — and picking *where* is a three-body problem that breaks every existing tool, because land, gas, and power are not the same kind of data and can't be scored the same way.
 
-COLLIDE runs all three simultaneously. Three ML models score each axis with live public data. TOPSIS arbitrates the trade-offs. Ten thousand Monte Carlo simulations give you P10/P50/P90 cost ranges over 20 years. And a LangGraph agent on top of Claude sits in the room with you — *"What if gas spikes 40%?"* re-runs the entire analysis in seconds. What consulting firms charge six figures and take months to deliver.
+Land viability is a **static multi-constraint problem** — parcel attributes, zoning, fiber, water, flood risk. A **Random Forest** handles feature interactions and explains each score via SHAP: *"site A ranks 47th because highway access (28%) and substation proximity (24%) dominate, but wildfire risk drags it."* Gas supply is a **spatial density problem** — 50 years of PHMSA pipeline failure records at exact coordinates, severity-weighted. A **GPU-accelerated KDE** estimates incident probability per location across 100k points in seconds. Power economics is a **temporal regime problem** — LMP swings ±$30/MWh intra-day across market regimes that aren't labeled. A **Moirai foundation model** handles 72-hour forecasting, a **GMM** discovers the three market states (normal / stress-scarcity / wind-curtailment), and a **Random Forest** predicts spread durability conditioned on the current regime.
+
+**TOPSIS** combines the three axes (30/35/35 by default, user-adjustable). **10,000 Monte Carlo simulations** give P10/P50/P90 NPV over 20 years. A **LangGraph agent on Claude** sits on top, reasoning across the full scorecard — *"What if gas spikes 40%?"* re-runs the analysis live against ERCOT/CAISO feeds. What consulting firms charge six figures and take months to deliver.
 
 <table><tr>
 <td align="center"><h3>50–500</h3><sub>MW per site</sub></td>

@@ -65,7 +65,7 @@ A traffic detector that adapts to weather, time, camera, and air quality in real
 <table><tr>
 <td align="center"><h3>90</h3><sub>live LTA cameras</sub></td>
 <td align="center"><h3 style="color:#22d3ee">1.4%</h3><sub>parameter overhead</sub></td>
-<td align="center"><h3>190K+</h3><sub>detection records on HF</sub></td>
+<td align="center"><h3>213K+</h3><sub>detection records on HF</sub></td>
 <td align="center"><h3>2018</h3><sub>FiLM, applied here first</sub></td>
 </tr></table>
 
@@ -118,7 +118,7 @@ flowchart LR
     H --> OUT[vehicles · plates · tracks]
 ```
 
-The system is live on HuggingFace Spaces, polling all 90 cameras every 90 seconds. 190,000+ detection records collected across 70+ days (April–June 2026). Currently running a Grounding DINO auto-labelling pass on the raw LTA image archive to replace the COCO-inherited class taxonomy with a 10-class Singapore-specific one — container trucks near Tuas port were being miscounted as generic trucks, which breaks road load estimates on MCE, AYE, and PIE.
+The system is live on HuggingFace Spaces, polling all 90 cameras every 90 seconds. 213,000+ detection records collected since April 2026, still growing. Phase 3 retraining is underway — Grounding DINO auto-labelling notebooks are done and running, replacing the COCO-inherited class scheme with a 10-class Singapore-specific taxonomy. Container trucks near Tuas port were being counted as generic trucks; taxis (distinct livery) folded into car; scooters invisible. New weights ship once training completes.
 
 </details>
 
@@ -239,7 +239,7 @@ Store-level weekly demand for 45 stores. Lagged/rolling features, holiday flags,
 
 **Reading.** &nbsp; Recently finished Liu Cixin's trilogy — *The Three-Body Problem*, *The Dark Forest*, *Death's End*. Currently reading *Why Machines Learn* (Anil Ananthaswamy) and *Absolute Martian Manhunter* (Deniz Camp / Javier Rodríguez) — through #10, #11 (April 22) next. On deck: *Darwin's Radio* (Greg Bear), *Annihilation* (Jeff VanderMeer).
 
-**Building.** &nbsp; **CATI** has 190k+ detection records across 70 days of live collection. Next step is a Singapore-specific 10-class vehicle taxonomy — the COCO-inherited one conflates container trucks, prime movers, and tippers into a single "truck" label, which materially breaks road load estimates near the port. Running Grounding DINO auto-labelling on the raw image archive, then human review, then retrain. **COLLIDE** is shipped and parked. Research Assistant at ASU College of Health Solutions is the day job.
+**Building.** &nbsp; **CATI** is in Phase 3 retraining. 213k+ records in the HF dataset and growing — the live inference loop is still running. The problem being fixed: the Phase 2 model was trained on COCO pseudo-labels, so "container truck", "prime mover", and "tipper" were all "truck", and taxis were "car". Grounding DINO auto-labelling pipeline is built and ready to run; next is human review, then retrain on the corrected 10-class Singapore taxonomy. **COLLIDE** is shipped and parked. Research Assistant at ASU College of Health Solutions is the day job.
 
 **Thinking about.** &nbsp; The fact that 90% of useful ML signals are public datasets nobody bothered to wire up. The next CATI-shaped project. How to make agents that *fail* gracefully instead of hallucinating confidently.
 

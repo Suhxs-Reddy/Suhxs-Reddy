@@ -43,6 +43,20 @@ Solo end-to-end build, live in production. Standard detectors treat every frame 
 
 Deployed on HuggingFace Spaces — every 90 seconds it fetches all 90 LTA camera feeds, runs conditioned inference, and appends per-camera vehicle counts, directional splits, weather state, and road assignment to a public dataset. **213K+ records collected since April 2026**, structured for downstream traffic analysis: congestion modelling, peak-hour flow patterns, road-load estimation by vehicle class, multi-camera network analytics. Data pipeline is temporally split — train/val/test partitioned by date, no leakage. Grounding DINO auto-labelling (Phase 3, in progress) replaces COCO pseudo-labels with a 10-class Singapore-specific taxonomy so vehicle class counts are actually correct.
 
+**How it was built:**
+
+`1. Collect` &nbsp; LTA API → raw images + NEA weather/PM2.5 metadata, 90 cameras, structured by date and camera ID
+
+`2. Extract` &nbsp; YOLOv11s backbone run offline → P3/P4/P5 feature tensors cached to disk (FP16), decoupled from training loop
+
+`3. Phase 1` &nbsp; Backbone frozen. Train ContextEncoder + FiLMGenerator + adaptive gates on cached features. γ=1, β=0 init — starts identical to vanilla YOLO, diverges only where context helps loss. `cati_best.pt`
+
+`4. Phase 2` &nbsp; Backbone unfrozen. Joint fine-tune of full model with lower LR on backbone, higher on context modules. 6 training runs, best checkpoint `yolo_cati6`. `cati_phase2_final.pt`
+
+`5. Deploy` &nbsp; Docker → HuggingFace Spaces (CPU). Live inference loop, Streamlit dashboard, Folium map, HF dataset push every sweep
+
+`6. Phase 3 ↻` &nbsp; Grounding DINO zero-shot auto-labels 1,800 sampled images with 10-class SG taxonomy. Human review on low-confidence detections. Retrain Phase 2 head with nc=10. Phase 1 weights reused — ContextEncoder is class-agnostic
+
 <table><tr>
 <td align="center"><h3>90</h3><sub>live LTA cameras</sub></td>
 <td align="center"><h3>1.4%</h3><sub>parameter overhead</sub></td>

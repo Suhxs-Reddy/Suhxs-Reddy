@@ -24,11 +24,7 @@
 
 ## <sub><code>01.</code></sub> &nbsp;About
 
-The data is always dirtier than you think. The deployment is always weirder than you imagined. Generic models miss the obvious because nobody told them what was obvious.
-
-I work at the seam between AI and the world it has to live in — where 90 traffic cameras include eleven 320×240 relics from the early 2000s, where pipeline incident data from 1986 changes where you'd put a gigawatt plant in 2026, where the privacy policy nobody reads is also the one selling your location.
-
-**The fun part isn't tuning the model. It's noticing what the model can't see.**
+MS Data Science at ASU. I build ML systems that have to work in the real world — where data is messy, deployment is weird, and the interesting problems are the ones generic models can't see because nobody told them what to look for.
 
 <br/>
 <br/>
@@ -43,9 +39,7 @@ I work at the seam between AI and the world it has to live in — where 90 traff
 
 <sub>Context-Aware Traffic Intelligence · Singapore · solo build</sub>
 
-Every standard detector treats every frame the same. It doesn't know it's 3am. It doesn't know it's raining. It doesn't know camera 47 on the CTE sees through a degraded 320×240 lens that drifts darker in the wet. **It's flying blind when it doesn't have to be.**
-
-CATI feeds the model what it's missing — live weather, PM2.5, time, camera identity — and uses **[FiLM layers](https://arxiv.org/abs/1709.07871)** to re-wire YOLOv11's backbone at every single inference step. The model that runs at 3am in a storm is not the same model that runs at noon on a clear highway. One set of weights. Ninety different behaviours. 130K extra parameters on 9.4M.
+Standard detectors treat every frame identically — same weights at 3am in a monsoon as at noon on a clear highway. Singapore's LTA network has 90 fixed cameras at known locations with live weather, PM2.5, and timestamp available at inference time. CATI uses all of it. **[FiLM layers](https://arxiv.org/abs/1709.07871)** inject environmental metadata directly into YOLOv11's backbone at P3/P4/P5, re-conditioning feature maps per inference step. One model, 90 context-specific behaviours, 130K extra parameters on 9.4M.
 
 <table><tr>
 <td align="center"><h3>90</h3><sub>live LTA cameras</sub></td>

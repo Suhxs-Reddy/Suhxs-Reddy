@@ -49,7 +49,7 @@ This is where **[Feature-wise Linear Modulation (FiLM)](https://arxiv.org/abs/17
 
 To protect YOLO's pretrained weights, CATI uses **learned adaptive gating**: `α · FiLM(feature) + (1−α) · feature`. At initialisation (γ=1, β=0, gate bias=−2 → α≈0.12), **the network starts near-identical to vanilla YOLO**. As training progresses, the model selectively opens the gate only where context demonstrably reduces detection loss. Because FiLM operates channel-wise on intermediate tensors rather than stacking heavy convolutional layers, the entire conditioning engine adds just **130K parameters onto a 9.4M backbone — 1.4% overhead** with negligible inference latency cost.
 
-COCO's generic 6-class taxonomy is wrong for Singapore border traffic — a container truck and a prime mover are both `truck` to COCO, but at Tuas Checkpoint they carry completely different load and congestion implications. **Phase 3** replaces this with a **10-class Singapore-specific taxonomy** (car, motorcycle, scooter, bus, van, lorry, container truck, prime mover, tipper truck, taxi), auto-labelled at scale using **Grounding DINO** zero-shot detection across ~6,500 images, with human review for edge cases where confidence collapses (van and lorry share similar frontal silhouettes at camera distance). Phase 3 training: **CATI mAP50=0.572 vs ablation 0.541, +7.5% detection rate in pre-dawn conditions**. Adversarial data collection is automated — a **Colab CLI pipeline** runs sunset-to-sunrise sweeps of all 8 checkpoint cameras nightly, quality-flagging each frame (Laplacian blur, brightness, contrast, headlight blob count) so the hard negative set is structured rather than just "dark images".
+COCO's generic 6-class taxonomy is wrong for Singapore border traffic — a container truck and a prime mover are both `truck` to COCO, but at Tuas Checkpoint they carry completely different load and congestion implications. **Phase 3** replaces this with a **10-class Singapore-specific taxonomy** (car, motorcycle, scooter, bus, van, lorry, container truck, prime mover, tipper truck, taxi), auto-labelled at scale using **Grounding DINO** zero-shot detection across ~6,500 images, with human review for edge cases where confidence collapses (van and lorry share similar frontal silhouettes at camera distance). Phase 3 training: **CATI mAP50=0.572 vs ablation 0.541; in pre-dawn frames (05:00–06:00) CATI produced ~7.5% more detections than the ablation at higher average confidence (0.634 vs 0.602)** — consistent with the gate opening in low light; ground-truthed night accuracy in progress. Adversarial data collection is automated — a **Colab CLI pipeline** runs sunset-to-sunrise sweeps of all 8 checkpoint cameras nightly, quality-flagging each frame (Laplacian blur, brightness, contrast, headlight blob count) so the hard negative set is structured rather than just "dark images".
 
 <table><tr>
 <td align="center"><h3>213K+</h3><sub>detection records on HF</sub></td>
@@ -98,7 +98,6 @@ Getting the data clean enough to score against was its own project — **13 live
 
 **[DataGuard](https://github.com/Suhxs-Reddy/KiroHackathon)** &nbsp; `'25` &nbsp; — &nbsp; Chrome extension that lets Llama 3.1 read the privacy policy for you. Breach-checks the domain and generates one-click GDPR/CCPA opt-outs.
 
-**[AI Study Buddy](https://github.com/Suhxs-Reddy/CBC-Hackathon)** &nbsp; `'25` &nbsp; — &nbsp; RAG tutor that retrieves only from your real Canvas docs and flags out-of-syllabus questions instead of hallucinating answers.
 
 <br/>
 <br/>
@@ -106,7 +105,7 @@ Getting the data clean enough to score against was its own project — **13 live
 
 ## <sub><code>04.</code></sub> &nbsp;Currently
 
-**CATI Phase 3 in progress** — initial retraining on 10-class Singapore vehicle taxonomy done (mAP50=0.572, +7.5% detection in pre-dawn vs fine-tuned baseline). GDino auto-labelling of the March 9 dataset (~6,500 images across 90 cameras) complete; van/lorry edge cases going to manual review — GDino hits near-identical confidence on similar shapes, and the classes matter for Tuas freight counts. Automated night baseline collection pipeline now running via Colab CLI: sunset-to-sunrise sweeps of all 8 checkpoint cameras, each frame quality-flagged (Laplacian blur score, brightness, contrast, headlight blob count) with `is_challenging` and `is_candidate_neg` labels so the negative set is structured rather than just "images from night". Cron runs 18:30–07:15 SGT nightly, Aug 10–15. Phase 4 planned: context-conditioned bright-region attention before FiLM for true night detection, plus 3–5am dark baseline frames (streetlights, near-zero traffic) as hard negatives so the model learns streetlights alone ≠ vehicle.
+**CATI Phase 3 in progress** — initial retraining on 10-class Singapore vehicle taxonomy done (mAP50=0.572; ~7.5% more detections than ablation in pre-dawn frames at higher avg confidence — dets/img delta, not a validated accuracy gain; night ground truth in progress). GDino auto-labelling of the March 9 dataset (~6,500 images across 90 cameras) complete; van/lorry edge cases going to manual review — GDino hits near-identical confidence on similar shapes, and the classes matter for Tuas freight counts. Automated night baseline collection pipeline now running via Colab CLI: sunset-to-sunrise sweeps of all 8 checkpoint cameras, each frame quality-flagged (Laplacian blur score, brightness, contrast, headlight blob count) with `is_challenging` and `is_candidate_neg` labels so the negative set is structured rather than just "images from night". Cron runs 18:30–07:15 SGT nightly, Aug 10–15. Phase 4 planned: context-conditioned bright-region attention before FiLM for true night detection, plus 3–5am dark baseline frames (streetlights, near-zero traffic) as hard negatives so the model learns streetlights alone ≠ vehicle.
 
 Research Success Data Assistant at ASU College of Health Solutions is the day job.
 
@@ -116,7 +115,7 @@ Research Success Data Assistant at ASU College of Health Solutions is the day jo
 
 ## <sub><code>05.</code></sub> &nbsp;Stack
 
-`Python` &nbsp;·&nbsp; `PyTorch` &nbsp;·&nbsp; `scikit-learn` &nbsp;·&nbsp; `HuggingFace` &nbsp;·&nbsp; `YOLO` &nbsp;·&nbsp; `LangGraph` &nbsp;·&nbsp; `FastAPI` &nbsp;·&nbsp; `DuckDB` &nbsp;·&nbsp; `Parquet` &nbsp;·&nbsp; `Pandas` &nbsp;·&nbsp; `SQL` &nbsp;·&nbsp; `MongoDB` &nbsp;·&nbsp; `AWS`
+`Python` &nbsp;·&nbsp; `PyTorch` &nbsp;·&nbsp; `scikit-learn` &nbsp;·&nbsp; `HuggingFace` &nbsp;·&nbsp; `YOLO` &nbsp;·&nbsp; `LangGraph` &nbsp;·&nbsp; `FastAPI` &nbsp;·&nbsp; `DuckDB` &nbsp;·&nbsp; `Parquet` &nbsp;·&nbsp; `Pandas` &nbsp;·&nbsp; `SQL` &nbsp;·&nbsp; `AWS`
 
 <br/>
 <br/>

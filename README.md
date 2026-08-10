@@ -105,7 +105,7 @@ Getting the data clean enough to score against was its own project — **13 live
 
 ## <sub><code>04.</code></sub> &nbsp;Currently
 
-**CATI Phase 3 complete** — retrained on a 10-class Singapore vehicle taxonomy. CATI mAP50=0.572 vs fine-tuned YOLO baseline 0.541; +7.5% detection rate in pre-dawn conditions. Currently collecting adversarial data (night/sunrise/rain) at the 8 active checkpoint cameras for targeted fine-tuning on border traffic.
+**CATI Phase 3 in progress** — initial retraining on 10-class Singapore vehicle taxonomy done (mAP50=0.572, +7.5% detection in pre-dawn vs baseline). Now collecting adversarial data at the 8 active checkpoint cameras (night/sunrise/rain) for targeted fine-tuning on border traffic before pushing new weights to production.
 
 Research Success Data Assistant at ASU College of Health Solutions is the day job.
 

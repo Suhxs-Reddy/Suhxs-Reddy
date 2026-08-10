@@ -105,7 +105,7 @@ Getting the data clean enough to score against was its own project — **13 live
 
 ## <sub><code>04.</code></sub> &nbsp;Currently
 
-**CATI Phase 3 in progress** — initial retraining on 10-class Singapore vehicle taxonomy done (mAP50=0.572, +7.5% detection in pre-dawn vs fine-tuned baseline). Collecting adversarial data at the 8 active checkpoint cameras across night, sunrise, sunset, and rain conditions. Phase 4 planned: context-conditioned bright-region attention before FiLM for true night detection, plus 3–5am dark baseline frames (streetlights, near-zero traffic) as hard negatives so the model learns streetlights alone ≠ vehicle.
+**CATI Phase 3 in progress** — initial retraining on 10-class Singapore vehicle taxonomy done (mAP50=0.572, +7.5% detection in pre-dawn vs fine-tuned baseline). GDino auto-labelling of the March 9 dataset (~6,500 images across 90 cameras) complete; van/lorry edge cases going to manual review — GDino hits near-identical confidence on similar shapes, and the classes matter for Tuas freight counts. Automated night baseline collection pipeline now running via Colab CLI: sunset-to-sunrise sweeps of all 8 checkpoint cameras, each frame quality-flagged (Laplacian blur score, brightness, contrast, headlight blob count) with `is_challenging` and `is_candidate_neg` labels so the negative set is structured rather than just "images from night". Cron runs 18:30–07:15 SGT nightly, Aug 10–15. Phase 4 planned: context-conditioned bright-region attention before FiLM for true night detection, plus 3–5am dark baseline frames (streetlights, near-zero traffic) as hard negatives so the model learns streetlights alone ≠ vehicle.
 
 Research Success Data Assistant at ASU College of Health Solutions is the day job.
 

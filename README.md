@@ -105,7 +105,7 @@ Getting the data clean enough to score against was its own project — **13 live
 
 ## <sub><code>04.</code></sub> &nbsp;Currently
 
-**CATI Phase 3 in progress** — initial retraining on 10-class Singapore vehicle taxonomy done (mAP50=0.572, +7.5% detection in pre-dawn vs baseline). Now collecting adversarial data at the 8 active checkpoint cameras (night/sunrise/rain) for targeted fine-tuning on border traffic before pushing new weights to production.
+**CATI Phase 3 in progress** — initial retraining on 10-class Singapore vehicle taxonomy done (mAP50=0.572, +7.5% detection in pre-dawn vs fine-tuned baseline). Collecting adversarial data at the 8 active checkpoint cameras across night, sunrise, sunset, and rain conditions. Phase 4 planned: context-conditioned bright-region attention before FiLM for true night detection, plus 3–5am dark baseline frames (streetlights, near-zero traffic) as hard negatives so the model learns streetlights alone ≠ vehicle.
 
 Research Success Data Assistant at ASU College of Health Solutions is the day job.
 

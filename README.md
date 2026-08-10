@@ -41,19 +41,19 @@ MS Data Science at ASU. I build ML systems that have to work in the real world �
 
 Solo end-to-end build, live in production on Hugging Face.
 
-Singapore's LTA streams **90 live traffic feeds every 90 seconds**, providing complete spatial coverage across an entire country's road network. It's a massive real-time asset sitting completely in the open — and turning a raw, uncurated API into a structured, production-ready dataset requires **serious data engineering**. CATI bridges this gap: over a 15-day initial run in April 2026, the autonomous pipeline captured and processed **over 213,000 structured detection records** directly to Hugging Face. Unlike pre-cleaned benchmarks, these feeds operate under unforgiving real-world conditions: degraded 320×240 resolutions, sudden tropical downpours, 3am headlight glare, PM2.5 haze, and localised microclimates across the island. Capturing an entire nation's traffic stream end-to-end demands **a pipeline and a model built specifically for continuous environmental volatility**.
+Singapore's LTA publishes live traffic camera feeds as open data — no key, no rate limit, updated every 90 seconds. Turning a raw, uncurated API into a structured production dataset requires **serious data engineering**. CATI bridges this gap in two phases. Over a **15-day initial run in April 2026**, the autonomous pipeline swept all **90 LTA expressway cameras** and captured **over 213,000 structured detection records** directly to Hugging Face — complete spatial coverage of Singapore's road network. From July 2026, LTA retired the expressway camera feed and retained **8 high-resolution checkpoint cameras** (1920×1080) at Woodlands Checkpoint, Tuas Second Link, and Sentosa Gateway — three of Singapore's highest-traffic chokepoints, handling over 500,000 border crossings per day. The live system now delivers **checkpoint traffic intelligence**: cross-border vehicle flow, heavy goods classification at Tuas, tourist traffic at Sentosa. Both phases operate under unforgiving real-world conditions: tropical downpours, 3am headlight glare, PM2.5 haze — demanding **a model built specifically for continuous environmental volatility**.
 
 Standard YOLO is a phenomenal general-purpose detector, but in production **its static nature presents clear limits**. It processes every frame in a vacuum, treating a crisp sunlit highway identically to a rain-slicked night feed. In tropical conditions where weather and lighting shift instantly, this **context-blindness causes real issues**. When downpours or severe glare obscure pixel-level features, static weights have **no built-in mechanism to adapt feature extraction to ambient noise**.
 
 This is where **[Feature-wise Linear Modulation (FiLM)](https://arxiv.org/abs/1709.07871)** steps in. Rather than forcing the vision backbone to infer context purely from noisy pixels, a lightweight **ContextEncoder** (MLP) ingests live metadata: NEA weather codes, PM2.5 particulate concentration, temporal cycles (sin/cos hour encoding), image resolution, and a **learned 16-dimensional camera embedding**. These embeddings capture viewpoint, road geometry, and scene composition for all 90 cameras — grounded in a **custom NetworkX directed graph** where node locations, lane anchors, and junction flags were extracted by OCR-reading LTA's text overlays and applying PCA on coordinates to correctly orient major expressways like the PIE and AYE. The ContextEncoder projects this metadata into scaling (γ) and shifting (β) vectors, applying an affine transformation (`feature = γ ⊙ feature + β`) directly onto **intermediate feature maps at P3, P4, and P5** of YOLOv11's backbone. This functions as a **real-time environmental equaliser**, dynamically boosting suppressed object signals in degraded conditions.
 
-To protect YOLO's pretrained weights, CATI uses **learned adaptive gating**: `α · FiLM(feature) + (1−α) · feature`. At initialisation (γ=1, β=0, α=0), **the network behaves identically to vanilla YOLO**. As training progresses, the model selectively activates modulation only where context demonstrably reduces detection loss. Because FiLM operates channel-wise on intermediate tensors rather than stacking heavy convolutional layers, the entire conditioning engine adds just **130K parameters onto a 9.4M backbone — 1.4% overhead** with negligible inference latency cost.
+To protect YOLO's pretrained weights, CATI uses **learned adaptive gating**: `α · FiLM(feature) + (1−α) · feature`. At initialisation (γ=1, β=0, gate bias=−2 → α≈0.12), **the network starts near-identical to vanilla YOLO**. As training progresses, the model selectively opens the gate only where context demonstrably reduces detection loss. Because FiLM operates channel-wise on intermediate tensors rather than stacking heavy convolutional layers, the entire conditioning engine adds just **130K parameters onto a 9.4M backbone — 1.4% overhead** with negligible inference latency cost.
 
 
 <table><tr>
-<td align="center"><h3>90</h3><sub>live LTA cameras</sub></td>
-<td align="center"><h3>1.4%</h3><sub>parameter overhead</sub></td>
 <td align="center"><h3>213K+</h3><sub>detection records on HF</sub></td>
+<td align="center"><h3>1.4%</h3><sub>parameter overhead</sub></td>
+<td align="center"><h3>500K+</h3><sub>daily border crossings monitored</sub></td>
 <td align="center"><h3>90s</h3><sub>inference interval</sub></td>
 </tr></table>
 
@@ -105,7 +105,7 @@ Getting the data clean enough to score against was its own project — **13 live
 
 ## <sub><code>04.</code></sub> &nbsp;Currently
 
-**CATI Phase 3** — retraining on a 10-class Singapore vehicle taxonomy (car, motorcycle, scooter, bus, van, lorry, container truck, prime mover, tipper truck, taxi). The Phase 2 model was trained on COCO pseudo-labels; this fixes it. GDino auto-labelling complete (~1,800 images across all 90 cameras). Dataset build and training next.
+**CATI Phase 3 complete** — retrained on a 10-class Singapore vehicle taxonomy. CATI mAP50=0.572 vs fine-tuned YOLO baseline 0.541; +7.5% detection rate in pre-dawn conditions. Currently collecting adversarial data (night/sunrise/rain) at the 8 active checkpoint cameras for targeted fine-tuning on border traffic.
 
 Research Success Data Assistant at ASU College of Health Solutions is the day job.
 
